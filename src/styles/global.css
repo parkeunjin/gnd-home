@@ -30,6 +30,9 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font
 button,a,input,select,textarea{-webkit-tap-highlight-color:transparent}
 img{max-width:100%;height:auto}
 a{text-decoration:none;color:inherit}
+/* 유틸리티: 모바일 전용 줄바꿈 */
+.mob-br{display:none}
+@media(max-width:768px){.mob-br{display:block}}
 
 /* ══════════════════════════════
    HEADER
@@ -191,6 +194,44 @@ header.scrolled{
   from{opacity:0;transform:translateY(20px)}
   to{opacity:1;transform:translateY(0)}
 }
+
+/* ── 모바일 AI 서브메뉴 ── */
+.mobile-ai-item{position:relative}
+.mobile-ai-toggle{
+  display:flex;align-items:center;justify-content:space-between;
+  width:100%;padding:18px 32px;
+  font-size:22px;font-weight:600;
+  color:rgba(255,255,255,.65);
+  background:none;border:none;border-bottom:1px solid rgba(255,255,255,.05);
+  cursor:pointer;font-family:var(--font);
+  letter-spacing:-.03em;
+  transition:color .2s;
+  text-align:left;
+}
+.mobile-ai-toggle:hover,.mobile-ai-toggle.active{color:#fff}
+.mobile-ai-arrow{
+  width:18px;height:18px;flex-shrink:0;
+  transition:transform .3s cubic-bezier(.16,1,.3,1);
+  color:rgba(255,255,255,.35);
+}
+.mobile-ai-item.open .mobile-ai-arrow{transform:rotate(180deg);color:var(--accent)}
+.mobile-ai-sub{
+  list-style:none;
+  max-height:0;overflow:hidden;
+  transition:max-height .35s cubic-bezier(.16,1,.3,1);
+  background:rgba(96,165,250,.05);
+}
+.mobile-ai-item.open .mobile-ai-sub{max-height:300px}
+.mobile-ai-sub li a{
+  display:block;padding:14px 32px 14px 44px;
+  font-size:17px;font-weight:500;
+  color:rgba(255,255,255,.55);
+  border-bottom:1px solid rgba(255,255,255,.04);
+  transition:color .2s,padding-left .2s;
+  letter-spacing:-.02em;
+}
+.mobile-ai-sub li a:hover{color:var(--accent);padding-left:52px}
+.mobile-ai-sub li:last-child a{border-bottom:1px solid rgba(255,255,255,.05)}
 
 /* ══════════════════════════════
    HERO

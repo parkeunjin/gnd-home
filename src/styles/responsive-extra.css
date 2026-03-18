@@ -444,3 +444,138 @@ html, body {
   body { background: #fff !important; color: #000 !important; }
   .container { max-width: 100%; padding: 0 20px; }
 }
+
+/* ════════════════════════════════════════
+   자동줄바꿈 디자인 보호
+════════════════════════════════════════ */
+
+/* ── 배지/태그류 — 줄바꿈 방지 ── */
+.sec-label,
+.hero-badge,
+.hero-product-badge,
+.page-badge,
+.ai-badge-sub,
+.sol-num,
+.di-badge,
+.tl-tag,
+.eco-eng-chip,
+.afd-chip,
+.afd-proto,
+.arch-proto,
+.eco-proto-badge,
+.diff-chip,
+.ps-sol-badge,
+.card-role-badge,
+.cta-eyebrow,
+.pg-givas .cta-badge,
+.pg-vmeps .cta-actions,
+.pg-rmeps .sec-label,
+.pg-aiplatform .page-badge {
+  white-space: nowrap;
+}
+
+/* ── 히어로 타이틀: 단어단위 줄바꿈 ── */
+#hero .hero-title,
+.pg-givas .givas-hero-title,
+.pg-vmeps .vmeps-hero-title,
+.pg-rmeps .hero-title,
+.pg-solution .page-title,
+.pg-aiplatform .page-title,
+.pg-company .page-title,
+.pg-clients .page-title,
+.pg-faq .page-title,
+.pg-info .page-title,
+.pg-contact .page-title {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+/* ── 본문 설명 텍스트: 자연스러운 줄바꿈 ── */
+.sec-desc,
+.hero-desc,
+.page-desc,
+.pg-givas .givas-hero-desc,
+.pg-vmeps .page-desc,
+.pg-rmeps .hero-desc,
+.pg-solution .cta-sub,
+.pg-faq .faq-cta-bar-desc,
+.pg-aiplatform .cta-bar-desc {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+/* ── 카드 타이틀류 ── */
+.sol-name,
+.ai-badge-name,
+.pg-givas .feat-name,
+.pg-vmeps .feat-name,
+.pg-rmeps .feat-name,
+.pg-solution .mod-title,
+.pg-solution .diff-title,
+.pg-clients .industry-name,
+.pg-company .gqc-text {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+/* ── 수치/숫자 — 줄바꿈 절대 방지 ── */
+.stat-num,
+.kpi-val,
+.kpi-big-val,
+.kpi-hero-num,
+.vis-stat-val,
+.card-stat-val,
+.gstat-num,
+.hero-fact-num,
+.pg-givas .kpi-big-val,
+.pg-vmeps .kpi-hero-num,
+.pg-rmeps .kpi-big-val {
+  white-space: nowrap;
+}
+
+/* ── 버튼 텍스트: 줄바꿈 방지 ── */
+.btn-primary,
+.btn-ghost,
+.btn-cta-primary,
+.btn-cta-ghost,
+.btn-green,
+.btn-ghost-green,
+.pg-solution .btn-cta-primary,
+.pg-solution .btn-cta-ghost,
+.pg-aiplatform .btn-primary,
+.pg-aiplatform .btn-ghost,
+.form-submit {
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  /* 모바일에서 버튼은 전체폭이므로 줄바꿈 허용 */
+  .hero-cta .btn-primary,
+  .hero-cta .btn-ghost,
+  .pg-solution .cta-btns .btn-cta-primary,
+  .pg-solution .cta-btns .btn-cta-ghost,
+  .pg-givas .cta-actions .btn-cta-primary,
+  .pg-givas .cta-actions .btn-cta-ghost,
+  .pg-vmeps .cta-actions .btn-cta-primary,
+  .pg-vmeps .cta-actions .btn-cta-ghost,
+  .pg-rmeps .cta-actions .btn-cta-primary,
+  .pg-rmeps .cta-actions .btn-cta-ghost,
+  .pg-aiplatform .cta-bar-actions .btn-primary,
+  .pg-aiplatform .cta-bar-actions .btn-ghost {
+    white-space: normal;
+    word-break: keep-all;
+  }
+
+  /* 카드 내부 설명 텍스트 */
+  .sol-list li,
+  .ai-desc-list li,
+  .pg-solution .vs-item-text,
+  .pg-givas .fp-desc,
+  .pg-rmeps .fp-desc,
+  .pg-vmeps .fc-item,
+  .pg-clients .tl-txt,
+  .pg-company .greeting-body {
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+}

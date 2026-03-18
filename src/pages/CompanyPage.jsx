@@ -76,7 +76,7 @@ export default function CompanyPage() {
     const onResize=()=>{if(isMob())showMob(fbMobIdx);else showSpread(fbSpread)}
     window.addEventListener('resize',onResize)
 
-    // 전체화면 플립북
+    // 전체화면 플립북 — 한 페이지씩 표시
     const fbFullbtn=document.getElementById('fb-fullbtn')
     const fbOverlay=document.getElementById('fb-overlay')
     const fbOverlayBook=document.getElementById('fb-overlay-book')
@@ -84,64 +84,77 @@ export default function CompanyPage() {
     const fbOvPrev=document.getElementById('fb-ov-prev')
     const fbOvNext=document.getElementById('fb-ov-next')
     const fbOvCounter=document.getElementById('fb-ov-counter')
-    let ovSpread=0
-    const totalOvSpreads=5
+
+    // 전체 페이지 목록 (spread×side 순서대로 펼치기)
+    const allPages=[
+      {spread:0,side:'L'},{spread:0,side:'R'},
+      {spread:1,side:'L'},{spread:1,side:'R'},
+      {spread:2,side:'L'},{spread:2,side:'R'},
+      {spread:3,side:'L'},{spread:3,side:'R'},
+      {spread:4,side:'L'},{spread:5,side:'L'}
+    ]
+    let ovPageIdx=0
 
     function buildOverlayPages(){
       if(!fbOverlayBook)return
       fbOverlayBook.innerHTML=''
-      for(let s=0;s<=totalOvSpreads;s++){
-        const spread=document.createElement('div')
-        spread.className='fb-ov-spread'
-        spread.dataset.spread=String(s)
-        spread.style.display='none'
-        ;['L','R'].forEach(side=>{
-          const orig=document.querySelector(`.fb-page[data-spread="${s}"][data-side="${side}"]`)
-          if(orig){
-            const origImg=orig.querySelector('img')
-            const panel=document.createElement('div')
-            panel.className='fb-ov-panel'
-            if(origImg){
-              const img=document.createElement('img')
-              img.src=origImg.src
-              img.alt=origImg.alt||''
-              img.loading='lazy'
-              panel.appendChild(img)
-            } else {
-              // ending page: clone its content
-              const inner=orig.querySelector('.ending-inner')
-              if(inner) panel.appendChild(inner.cloneNode(true))
-              panel.classList.add('fb-ov-ending')
-            }
-            spread.appendChild(panel)
+      allPages.forEach((p,i)=>{
+        const orig=document.querySelector(`.fb-page[data-spread="${p.spread}"][data-side="${p.side}"]`)
+        const wrap=document.createElement('div')
+        wrap.className='fb-ov-single'
+        wrap.dataset.idx=String(i)
+        wrap.style.display='none'
+        if(orig){
+          const origImg=orig.querySelector('img')
+          if(origImg){
+            const img=document.createElement('img')
+            img.src=origImg.src
+            img.alt=origImg.alt||''
+            img.loading='lazy'
+            wrap.appendChild(img)
           } else {
-            const empty=document.createElement('div')
-            empty.className='fb-ov-panel fb-ov-empty'
-            spread.appendChild(empty)
+            const inner=orig.querySelector('.ending-inner')
+            if(inner){wrap.appendChild(inner.cloneNode(true));wrap.classList.add('fb-ov-ending')}
           }
-        })
-        fbOverlayBook.appendChild(spread)
-      }
+        }
+        fbOverlayBook.appendChild(wrap)
+      })
     }
 
-    function updateOvCounter(){if(fbOvCounter)fbOvCounter.textContent=(ovSpread+1)+' / '+(totalOvSpreads+1)}
-    function showOvSpread(n){
-      ovSpread=Math.max(0,Math.min(totalOvSpreads,n))
-      document.querySelectorAll('.fb-ov-spread').forEach((el,i)=>el.style.display=i===ovSpread?'flex':'none')
+    function updateOvCounter(){
+      if(fbOvCounter)fbOvCounter.textContent=(ovPageIdx+1)+' / '+allPages.length
+    }
+    function showOvPage(n){
+      ovPageIdx=Math.max(0,Math.min(allPages.length-1,n))
+      document.querySelectorAll('.fb-ov-single').forEach((el,i)=>{
+        el.style.display=i===ovPageIdx?'flex':'none'
+      })
       updateOvCounter()
+      if(fbOvPrev)fbOvPrev.style.opacity=ovPageIdx===0?'0.3':'1'
+      if(fbOvNext)fbOvNext.style.opacity=ovPageIdx===allPages.length-1?'0.3':'1'
     }
     function openOverlay(){
       buildOverlayPages()
-      ovSpread=fbSpread
+      // 현재 보고 있는 spread의 첫 페이지부터 시작
+      ovPageIdx=fbSpread*2
       if(fbOverlay){fbOverlay.classList.add('open');document.body.style.overflow='hidden'}
-      showOvSpread(ovSpread)
+      showOvPage(ovPageIdx)
     }
     function closeOverlay(){if(fbOverlay)fbOverlay.classList.remove('open');document.body.style.overflow=''}
 
+    // 키보드 네비게이션
+    const ovKey=e=>{
+      if(!fbOverlay?.classList.contains('open'))return
+      if(e.key==='Escape')closeOverlay()
+      if(e.key==='ArrowLeft'||e.key==='ArrowUp')showOvPage(ovPageIdx-1)
+      if(e.key==='ArrowRight'||e.key==='ArrowDown')showOvPage(ovPageIdx+1)
+    }
+    document.addEventListener('keydown',ovKey)
+
     if(fbFullbtn)fbFullbtn.addEventListener('click',openOverlay)
     if(fbOverlayClose)fbOverlayClose.addEventListener('click',closeOverlay)
-    if(fbOvPrev)fbOvPrev.addEventListener('click',()=>showOvSpread(ovSpread-1))
-    if(fbOvNext)fbOvNext.addEventListener('click',()=>showOvSpread(ovSpread+1))
+    if(fbOvPrev)fbOvPrev.addEventListener('click',()=>showOvPage(ovPageIdx-1))
+    if(fbOvNext)fbOvNext.addEventListener('click',()=>showOvPage(ovPageIdx+1))
     if(fbOverlay)fbOverlay.addEventListener('click',e=>{if(e.target===fbOverlay)closeOverlay()})
 
     // Reveal
@@ -226,7 +239,7 @@ export default function CompanyPage() {
     <div className="container">
       <div className="sec-head-center reveal">
         <h2 className="sec-title">언론이 주목한 지엔디비즈</h2>
-        <p className="sec-desc">스마트팩토리 혁신을 선도하는 지엔디비즈의 주요 성과와 기술력을<br/>미디어가 직접 보도한 자료들입니다</p>
+        <p className="sec-desc">스마트팩토리 혁신을 선도하는 지엔디비즈의<br/>주요 성과와 기술력을<br className="mob-br"/>미디어가 직접 보도한 자료들입니다</p>
       </div>
       <div className="reveal" style={{transitionDelay:".1s"}}>
         <div className="flipbook-outer">

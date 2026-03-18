@@ -5,6 +5,7 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const [aiDropOpen, setAiDropOpen] = useState(false)
+  const [mobileAiOpen, setMobileAiOpen] = useState(false)
   const dropTimerRef = useRef(null)
   const location = useLocation()
 
@@ -22,6 +23,7 @@ export default function Header() {
   useEffect(() => {
     setMenuOpen(false)
     setAiDropOpen(false)
+    setMobileAiOpen(false)
   }, [location])
 
   useEffect(() => {
@@ -106,14 +108,27 @@ export default function Header() {
       {/* 풀스크린 모바일 메뉴 */}
       <nav className={`mobile-nav${menuOpen ? ' open' : ''}`} id="mobile-nav">
         <ul className="mobile-nav-list">
-          <li><Link to="/" onClick={() => setMenuOpen(false)}>홈</Link></li>
-          <li><Link to="/company" onClick={() => setMenuOpen(false)}>회사소개</Link></li>
-          <li><Link to="/solution" onClick={() => setMenuOpen(false)}>솔루션</Link></li>
-          <li><Link to="/ai/platform" onClick={() => setMenuOpen(false)}>AI 제품소개</Link></li>
-          <li><Link to="/clients" onClick={() => setMenuOpen(false)}>구축실적</Link></li>
-          <li><Link to="/faq" onClick={() => setMenuOpen(false)}>FAQ</Link></li>
-          <li><Link to="/info" onClick={() => setMenuOpen(false)}>도입안내</Link></li>
-          <li><Link to="/contact" onClick={() => setMenuOpen(false)}>제품문의</Link></li>
+          <li><Link to="/company" className={isActive('/company') ? 'active' : ''} onClick={() => setMenuOpen(false)}>회사소개</Link></li>
+          <li><Link to="/solution" className={isActive('/solution') ? 'active' : ''} onClick={() => setMenuOpen(false)}>솔루션</Link></li>
+          <li className={`mobile-ai-item${mobileAiOpen ? ' open' : ''}`}>
+            <button
+              className={`mobile-ai-toggle${isActive('/ai') ? ' active' : ''}`}
+              onClick={() => setMobileAiOpen(v => !v)}
+            >
+              AI 제품소개
+              <svg className="mobile-ai-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <ul className="mobile-ai-sub">
+              <li><Link to="/ai/platform" onClick={() => setMenuOpen(false)}>AI 플랫폼 개요</Link></li>
+              <li><Link to="/ai/givas" onClick={() => setMenuOpen(false)}>GIVAS (가이바스)</Link></li>
+              <li><Link to="/ai/vmeps" onClick={() => setMenuOpen(false)}>V-MEPS</Link></li>
+              <li><Link to="/ai/rmeps" onClick={() => setMenuOpen(false)}>R-MEPS</Link></li>
+            </ul>
+          </li>
+          <li><Link to="/clients" className={isActive('/clients') ? 'active' : ''} onClick={() => setMenuOpen(false)}>구축실적</Link></li>
+          <li><Link to="/faq" className={isActive('/faq') ? 'active' : ''} onClick={() => setMenuOpen(false)}>FAQ</Link></li>
+          <li><Link to="/info" className={isActive('/info') ? 'active' : ''} onClick={() => setMenuOpen(false)}>도입안내</Link></li>
+          <li><Link to="/contact" className={isActive('/contact') ? 'active' : ''} onClick={() => setMenuOpen(false)}>제품문의</Link></li>
         </ul>
       </nav>
     </>

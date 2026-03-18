@@ -258,48 +258,44 @@
   justify-content: center;
   width: 100%;
   overflow: hidden;
-  padding: 0 64px;
+  padding: 0 72px;
   box-sizing: border-box;
 }
 .pg-company .fb-overlay-book{
   width: 100%;
-  max-width: 1200px;
+  max-width: 680px;
   height: calc(100vh - 120px);
-  display: flex;
-  align-items: stretch;
-}
-
-/* Each spread = 2 panels side by side */
-.pg-company .fb-ov-spread{
-  display: flex;
-  gap: 12px;
-  width: 100%;
-  height: 100%;
-  align-items: center;
-}
-.pg-company .fb-ov-panel{
-  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #fff;
-  border-radius: 4px;
-  overflow: hidden;
-  height: 100%;
-  box-shadow: 0 8px 40px rgba(0,0,0,.6);
 }
-.pg-company .fb-ov-panel img{
+
+/* 단일 페이지 표시 */
+.pg-company .fb-ov-single{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 8px 60px rgba(0,0,0,.7);
+}
+.pg-company .fb-ov-single img{
   width: 100%;
   height: 100%;
   object-fit: contain;
   display: block;
 }
-.pg-company .fb-ov-empty{
-  flex: 1;
-  background: rgba(255,255,255,.02);
-  border-radius: 4px;
-  height: 100%;
+.pg-company .fb-ov-single.fb-ov-ending{
+  background: linear-gradient(160deg, #0a1830 0%, #060e1c 100%);
 }
+
+/* 구형 spread 스타일 숨김 */
+.pg-company .fb-ov-spread{ display: none; }
+.pg-company .fb-ov-panel{ display: none; }
+.pg-company .fb-ov-empty{ display: none; }
 .pg-company .fb-ov-ending{
   background: linear-gradient(160deg, #0a1830 0%, #060e1c 100%) !important;
 }

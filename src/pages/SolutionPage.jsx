@@ -56,25 +56,25 @@ export default function SolutionPage() {
             <div className="vs-item-icon vs-icon-x">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M18 6L6 18M6 6l12 12"/></svg>
             </div>
-            <div className="vs-item-text">작업지시 수작업 배포 — <strong>정확성 부재로 현장 혼선 발생</strong></div>
+            <div className="vs-item-text">작업지시 수작업 배포<span className="vs-dash"> —</span><br className="vs-mob-br"/> <strong>정확성 부재로 현장 혼선 발생</strong></div>
           </div>
           <div className="vs-item">
             <div className="vs-item-icon vs-icon-x">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M18 6L6 18M6 6l12 12"/></svg>
             </div>
-            <div className="vs-item-text">필요 정보를 필요한 시점에 활용 불가 — <strong>의사결정 지연</strong></div>
+            <div className="vs-item-text">필요 정보를 필요한 시점에 활용 불가<span className="vs-dash"> —</span><br className="vs-mob-br"/> <strong>의사결정 지연</strong></div>
           </div>
           <div className="vs-item">
             <div className="vs-item-icon vs-icon-x">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M18 6L6 18M6 6l12 12"/></svg>
             </div>
-            <div className="vs-item-text">생산실적 수작업 처리 — <strong>생산일보 작성에 시간 낭비</strong></div>
+            <div className="vs-item-text">생산실적 수작업 처리<span className="vs-dash"> —</span><br className="vs-mob-br"/> <strong>생산일보 작성에 시간 낭비</strong></div>
           </div>
           <div className="vs-item">
             <div className="vs-item-icon vs-icon-x">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M18 6L6 18M6 6l12 12"/></svg>
             </div>
-            <div className="vs-item-text">실물 재고·시스템 재고 차이 — <strong>생산 손실 지속 발생</strong></div>
+            <div className="vs-item-text">실물 재고·시스템 재고 차이<span className="vs-dash"> —</span><br className="vs-mob-br"/> <strong>생산 손실 지속 발생</strong></div>
           </div>
         </div>
       </div>
@@ -82,7 +82,7 @@ export default function SolutionPage() {
 
       <div className="vs-center">
         <div className="vs-label">VS</div>
-        <div className="vs-arrow-wrap">
+        <div className="vs-arrow-wrap vs-arrow-down">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </div>
         <div className="vs-name">i-MEPS</div>
@@ -102,25 +102,25 @@ export default function SolutionPage() {
             <div className="vs-item-icon vs-icon-check">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M5 13l4 4L19 7"/></svg>
             </div>
-            <div className="vs-item-text">작업지시 · 실적 실시간 공유 — <strong>현장 정확도 대폭 향상</strong></div>
+            <div className="vs-item-text">작업지시 · 실적 실시간 공유<span className="vs-dash"> —</span><br className="vs-mob-br"/> <strong>현장 정확도 대폭 향상</strong></div>
           </div>
           <div className="vs-item">
             <div className="vs-item-icon vs-icon-check">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M5 13l4 4L19 7"/></svg>
             </div>
-            <div className="vs-item-text">자료취합 업무 제거 — <strong>생산분석·개선 업무로 전환</strong></div>
+            <div className="vs-item-text">자료취합 업무 제거<span className="vs-dash"> —</span><br className="vs-mob-br"/> <strong>생산분석·개선 업무로 전환</strong></div>
           </div>
           <div className="vs-item">
             <div className="vs-item-icon vs-icon-check">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M5 13l4 4L19 7"/></svg>
             </div>
-            <div className="vs-item-text">시스템으로 보이는 현장관리 — <strong>데이터 기반 의사결정</strong></div>
+            <div className="vs-item-text">시스템으로 보이는 현장관리<span className="vs-dash"> —</span><br className="vs-mob-br"/> <strong>데이터 기반 의사결정</strong></div>
           </div>
           <div className="vs-item">
             <div className="vs-item-icon vs-icon-check">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M5 13l4 4L19 7"/></svg>
             </div>
-            <div className="vs-item-text">i-MEPS 데이터 → <strong>GIVAS AI 분석 엔진으로 자동 연결</strong></div>
+            <div className="vs-item-text">i-MEPS 데이터 →<br className="vs-mob-br"/> <strong>GIVAS AI 분석 엔진으로 자동 연결</strong></div>
           </div>
         </div>
       </div>
