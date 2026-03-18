@@ -1,0 +1,446 @@
+/* ================================================================
+   responsive-extra.css
+   전 페이지 공통 반응형 보완 패치
+   - 1024px 이하 page-hero 패딩 통일
+   - 360px 초소형 모바일 대응
+   - overflow-x 방지
+   - 공통 섹션 패딩 정규화
+================================================================ */
+
+/* ── 기본: 모든 박스는 border-box, 가로 넘침 방지 ── */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+  min-width: 0; /* flexbox/grid child overflow 방지 */
+}
+
+/* ── 공통 페이지 히어로 1024px 이하 패딩 통일 ── */
+@media (max-width: 1024px) {
+  .pg-aiplatform .page-hero-inner,
+  .pg-clients .page-hero-inner,
+  .pg-company .page-hero-inner,
+  .pg-contact .page-hero-inner,
+  .pg-faq .page-hero-inner,
+  .pg-solution .page-hero-inner {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  /* 공통 섹션 패딩 */
+  .pg-aiplatform .section,
+  .pg-clients #clients,
+  .pg-clients #industry,
+  .pg-clients #timeline,
+  .pg-solution #asis-tobe,
+  .pg-solution #modules,
+  .pg-solution #architecture,
+  .pg-solution #kpi,
+  .pg-solution #diff {
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+
+  /* feat-sub-en 줄임 */
+  .pg-givas .feat-sub-en,
+  .pg-vmeps .feat-sub-en,
+  .pg-rmeps .feat-sub-en {
+    width: 180px;
+    font-size: 12px;
+  }
+}
+
+/* ── 태블릿 768px ~ 1024px 사이 미세 조정 ── */
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* AI Platform hero chips */
+  .pg-aiplatform .hero-problem-chips {
+    max-width: 680px;
+  }
+  .pg-aiplatform .hero-chip {
+    font-size: 15px;
+    padding: 10px 18px;
+  }
+
+  /* Solution VS 비교 레이아웃 개선 */
+  .pg-solution .vs-left,
+  .pg-solution .vs-right {
+    padding: 36px 32px;
+  }
+
+  /* Clients 타임라인 */
+  .pg-clients .tl-txt { font-size: 15px; }
+  .pg-clients .tl-year { font-size: 26px; }
+
+  /* FAQ wrap */
+  .pg-faq .faq-wrap { padding: 40px 32px 72px; }
+
+  /* Company greeting */
+  .pg-company .gqc-text { font-size: 16px; }
+  .pg-company .gstat-num { font-size: 30px; }
+}
+
+/* ── 모바일 768px 이하 ── */
+@media (max-width: 768px) {
+
+  /* ── 공통 페이지 히어로 ── */
+  .pg-aiplatform .page-hero-inner,
+  .pg-clients .page-hero-inner,
+  .pg-company .page-hero-inner,
+  .pg-contact .page-hero-inner,
+  .pg-faq .page-hero-inner,
+  .pg-solution .page-hero-inner {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  /* ── 공통 섹션 패딩 정규화 ── */
+  .pg-aiplatform .section,
+  .pg-givas .section,
+  .pg-vmeps .section,
+  .pg-rmeps .section,
+  .pg-solution .section {
+    padding: 56px 0;
+  }
+
+  /* ── 섹션 헤더 공통 ── */
+  .pg-aiplatform .sec-head-center,
+  .pg-givas .sec-head-center,
+  .pg-vmeps .sec-head-center,
+  .pg-rmeps .sec-head-center,
+  .pg-solution .sec-head-center,
+  .pg-clients .sec-head-center {
+    margin-bottom: 36px;
+  }
+  .pg-aiplatform .sec-title,
+  .pg-givas .sec-title,
+  .pg-vmeps .sec-title,
+  .pg-rmeps .sec-title,
+  .pg-solution .sec-title,
+  .pg-clients .sec-title,
+  .pg-faq .faq-cta-bar-title {
+    font-size: clamp(22px, 5.5vw, 30px);
+  }
+  .pg-aiplatform .sec-desc,
+  .pg-givas .sec-desc,
+  .pg-vmeps .sec-desc,
+  .pg-rmeps .sec-desc,
+  .pg-solution .sec-desc,
+  .pg-clients .sec-desc {
+    font-size: 15px;
+  }
+
+  /* ── AI Platform: 생태계 다이어그램 ── */
+  .pg-aiplatform .eco-diagram { padding: 24px 16px; }
+  .pg-aiplatform .eco-engine { padding: 18px 20px; }
+  .pg-aiplatform .eco-engine-title { font-size: 18px; }
+  .pg-aiplatform .eco-engine-subs { font-size: 13px; gap: 4px; }
+  .pg-aiplatform .eco-eng-chip { font-size: 12px; padding: 4px 10px; }
+  .pg-aiplatform .eco-bottom-bar { font-size: 13px; padding: 12px 16px; flex-direction: column; text-align: center; gap: 6px; }
+  .pg-aiplatform .eco-protocol-badges { gap: 6px; }
+  .pg-aiplatform .eco-proto-badge { font-size: 12px; padding: 3px 10px; }
+  .pg-aiplatform .eco-src-name { font-size: 14px; }
+  .pg-aiplatform .eco-src-sub { font-size: 12px; }
+
+  /* ── AI Platform: 카드 비주얼 ── */
+  .pg-aiplatform .card-visual { height: 140px; }
+  .pg-aiplatform .card-name { font-size: 24px; }
+  .pg-aiplatform .card-body { padding: 20px 20px 24px; }
+  .pg-aiplatform .card-features li { font-size: 14px; }
+
+  /* ── AI Platform: KPI ── */
+  .pg-aiplatform #kpi { padding: 56px 0; }
+  .pg-aiplatform .kpi-title { font-size: clamp(22px, 5vw, 28px); }
+  .pg-aiplatform .kpi-bar-label { font-size: 16px; }
+  .pg-aiplatform .kpi-bar-value { font-size: 24px; }
+  .pg-aiplatform .kpi-bar-sub { font-size: 13px; }
+  .pg-aiplatform .kpi-speed-val { font-size: 28px; }
+  .pg-aiplatform .kpi-speed-label { font-size: 15px; }
+  .pg-aiplatform .kpi-speed-sub { font-size: 13px; }
+  .pg-aiplatform .kpi-speed-card { padding: 18px 16px; }
+
+  /* ── AI Platform: CTA KPI row ── */
+  .pg-aiplatform .cta-kpi-val { font-size: clamp(22px, 5vw, 28px); }
+  .pg-aiplatform .cta-kpi-label { font-size: 13px; }
+  .pg-aiplatform .cta-kpi-item { padding: 20px 16px; }
+  .pg-aiplatform .cta-bar-title { font-size: clamp(24px, 6vw, 34px); }
+
+  /* ── Solution: 아키텍처 다이어그램 ── */
+  .pg-solution .afd-src-name { font-size: 14px; }
+  .pg-solution .afd-src-sub { font-size: 12px; }
+  .pg-solution .afd-src-card { padding: 16px 12px; }
+  .pg-solution .afd-engine-title { font-size: 20px; }
+  .pg-solution .afd-engine-sub { font-size: 13px; }
+  .pg-solution .afd-chip { font-size: 12px; padding: 5px 12px; }
+  .pg-solution .afd-out-name { font-size: 15px; }
+  .pg-solution .afd-out-sub { font-size: 12px; }
+  .pg-solution .afd-out-card { padding: 20px 14px; }
+
+  /* ── Solution: KPI ── */
+  .pg-solution .kpi-val { font-size: 36px; }
+  .pg-solution .kpi-label { font-size: 14px; }
+  .pg-solution .kpi-sub { font-size: 12px; }
+  .pg-solution .kpi-card { padding: 24px 16px; }
+  .pg-solution .kpi-eff-val { font-size: 30px; }
+  .pg-solution .kpi-eff-title { font-size: 16px; }
+  .pg-solution .kpi-cmp-num { font-size: 28px; }
+  .pg-solution .cta-stat-val { font-size: 34px; }
+  .pg-solution .cta-stat-label { font-size: 13px; }
+  .pg-solution .cta-stat { padding: 20px 16px; }
+
+  /* ── Solution: Modules ── */
+  .pg-solution .mod-card { padding: 22px 18px; }
+  .pg-solution .mod-num { font-size: 28px; }
+  .pg-solution .mod-title { font-size: 15px; }
+  .pg-solution .mod-item { font-size: 13px; }
+
+  /* ── Solution: diff ── */
+  .pg-solution .diff-title { font-size: 18px; }
+  .pg-solution .diff-desc { font-size: 14px; }
+  .pg-solution .diff-chip { font-size: 12px; }
+
+  /* ── Clients: 고객사 로고 그리드 ── */
+  .pg-clients .limg { width: 120px; height: 56px; }
+  .pg-clients .t1-item { padding: 28px 16px; gap: 10px; }
+  .pg-clients .p-item { padding: 20px 12px; }
+  .pg-clients .p-item .limg { width: 100px; height: 48px; }
+  .pg-clients .industry-count { font-size: 50px; }
+  .pg-clients .industry-count-unit { font-size: 32px; }
+  .pg-clients .industry-name { font-size: 16px; }
+
+  /* ── Company: CEO 섹션 ── */
+  .pg-company .gstat-num { font-size: 24px; }
+  .pg-company .gstat-num em { font-size: 18px; }
+  .pg-company .gstat-label { font-size: 12px; }
+  .pg-company .greeting-body { font-size: 15px; }
+
+  /* ── Company: 오시는 길 ── */
+  .pg-company .loc-info { padding: 24px 20px; gap: 14px; }
+  .pg-company .loc-info-title { font-size: 15px; }
+  .pg-company .loc-val2 { font-size: 12px; }
+  .pg-company .loc-lbl2 { font-size: 10px; }
+
+  /* ── Contact: 사이드바 ── */
+  .pg-contact .contact-sidebar { gap: 12px; }
+  .pg-contact .contact-info-card { padding: 16px 14px; }
+  .pg-contact .cert-card { padding: 14px 14px; }
+
+  /* ── Info 페이지 ── */
+  .pg-info .step-card { padding: 18px 16px; }
+  .pg-info .step-num { font-size: 44px; }
+  .pg-info .step-title { font-size: 17px; }
+  .pg-info .step-subtitle { font-size: 13px; }
+  .pg-info .step-item { font-size: 14px; }
+  .pg-info .feat-tile { padding: 26px 22px; }
+  .pg-info .feat-title { font-size: 17px; }
+  .pg-info .feat-desc { font-size: 14px; }
+  .pg-info .support-item { padding: 18px 20px; }
+  .pg-info .support-heading { font-size: 16px; }
+  .pg-info .support-text { font-size: 14px; }
+
+  /* ── FAQ ── */
+  .pg-faq .faq-cta-bar-inner { padding: 0 20px; }
+  .pg-faq .faq-cta-bar-desc { font-size: 16px; }
+
+  /* ── 공통 모바일 네비 숨김 (페이지 스코프 없는 것) ── */
+  .nav-cta { display: none !important; }
+}
+
+/* ── 소형 모바일 480px ── */
+@media (max-width: 480px) {
+
+  /* ── 공통 히어로 패딩 ── */
+  .pg-aiplatform .page-hero-inner,
+  .pg-clients .page-hero-inner,
+  .pg-company .page-hero-inner,
+  .pg-contact .page-hero-inner,
+  .pg-faq .page-hero-inner,
+  .pg-solution .page-hero-inner {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  /* ── AI Platform ── */
+  .pg-aiplatform .ps-sol-name { font-size: 18px; }
+  .pg-aiplatform .ps-sol-desc { font-size: 13px; }
+  .pg-aiplatform .ps-sol-link { font-size: 13px; padding: 7px 13px; }
+  .pg-aiplatform .eco-source-card { padding: 14px 12px; }
+  .pg-aiplatform .eco-src-icon { width: 32px; height: 32px; }
+  .pg-aiplatform .eco-src-tag { font-size: 11px; }
+  .pg-aiplatform .card-visual { height: 120px; }
+  .pg-aiplatform .card-body { padding: 16px 16px 20px; }
+  .pg-aiplatform .card-name { font-size: 22px; }
+  .pg-aiplatform .card-btn { font-size: 13px; padding: 9px 14px; }
+  .pg-aiplatform .tech-card { padding: 18px 16px; }
+
+  /* ── Solution ── */
+  .pg-solution .kpi-grid { grid-template-columns: 1fr; }
+  .pg-solution .kpi-card { padding: 20px 16px; }
+  .pg-solution .kpi-val { font-size: 36px; }
+  .pg-solution .cta-stats { border-radius: 12px; }
+  .pg-solution .cta-stat-val { font-size: 30px; }
+  .pg-solution .cta-main-title { font-size: clamp(22px, 7vw, 28px); }
+
+  /* ── Clients ── */
+  .pg-clients .hero-fact-num { font-size: 30px; }
+  .pg-clients .limg { width: 100px; height: 48px; }
+  .pg-clients .t1-grid { grid-template-columns: 1fr 1fr; }
+  .pg-clients .t1-item { padding: 20px 12px; gap: 8px; }
+  .pg-clients .industry-count { font-size: 42px; }
+  .pg-clients .industry-name { font-size: 15px; }
+  .pg-clients .industry-card { padding: 24px 20px 22px; }
+  .pg-clients .cta-section-title { font-size: clamp(22px, 7vw, 28px); }
+  .pg-clients .cta-section-desc { font-size: 15px; }
+
+  /* ── Company ── */
+  .pg-company .greeting-stats { gap: 0; overflow-x: auto; }
+  .pg-company .gstat { min-width: 64px; padding: 0 10px; }
+  .pg-company .gstat-num { font-size: 22px; }
+  .pg-company .gqc { padding: 20px 16px; }
+  .pg-company .gqc-text { font-size: 14px; line-height: 1.8; }
+  .pg-company .gqc-mark { font-size: 52px; }
+  .pg-company .cert-card img { height: 100px; }
+
+  /* ── FAQ ── */
+  .pg-faq .faq-item { border-radius: 10px; }
+  .pg-faq .faq-group-label { font-size: 11px; }
+
+  /* ── Contact ── */
+  .pg-contact .path-icon { width: 40px; height: 40px; border-radius: 10px; }
+  .pg-contact .path-title { font-size: 15px; }
+  .pg-contact .path-desc { font-size: 12px; }
+  .pg-contact .check-group { gap: 6px; }
+  .pg-contact .check-label { font-size: 13px; padding: 7px 9px; }
+
+  /* ── Info ── */
+  .pg-info .roadmap-step { padding: 0 8px; }
+  .pg-info .step-num { font-size: 38px; }
+
+  /* ── GIVAS ── */
+  .pg-givas .givas-hero-title { font-size: clamp(24px, 7.5vw, 36px); }
+  .pg-givas .givas-hero-desc { font-size: 15px; }
+  .pg-givas .givas-vis-card { padding: 20px 16px; }
+  .pg-givas .diff-card { padding: 20px 16px; }
+  .pg-givas .diff-card-title { font-size: 16px; }
+  .pg-givas .diff-card-desc { font-size: 14px; }
+
+  /* ── VMEPS ── */
+  .pg-vmeps .fc-title { font-size: 18px; }
+  .pg-vmeps .fc-body { padding: 0 18px 20px; }
+  .pg-vmeps .fc-kpi-val { font-size: 24px; }
+  .pg-vmeps .fc-kpi-label { font-size: 12px; }
+  .pg-vmeps .fc-kpi { min-width: 80px; padding: 12px 10px; }
+  .pg-vmeps .kpi-hero-card { padding: 24px 16px; }
+  .pg-vmeps .kpi-hero-num { font-size: 52px; }
+  .pg-vmeps .effects-grid { gap: 10px; }
+  .pg-vmeps .effect-card { padding: 22px 16px; }
+
+  /* ── RMEPS ── */
+  .pg-rmeps .kpi-big-val { font-size: 36px; }
+  .pg-rmeps .kpi-big-item { padding: 20px 12px; }
+  .pg-rmeps .diff-card { padding: 20px 16px; }
+  .pg-rmeps .diff-card-title { font-size: 18px; }
+}
+
+/* ── 초소형 모바일 360px ── */
+@media (max-width: 360px) {
+
+  :root { --nav: 54px; }
+
+  /* 히어로 */
+  #hero .hero-title { font-size: clamp(28px, 10vw, 38px); }
+  .hero-typing { font-size: clamp(16px, 5.5vw, 22px); }
+  .hero-desc { font-size: 14px; }
+  .btn-primary, .btn-ghost { font-size: 14px; padding: 12px 18px; }
+
+  /* Stats */
+  .stat-num { font-size: 30px; }
+  .stat-num em { font-size: 20px; }
+  .stat-label { font-size: 12px; }
+
+  /* 공통 */
+  .container { padding: 0 14px; }
+  .sec-title { font-size: 20px; }
+  .sec-desc { font-size: 14px; }
+
+  /* AI Platform */
+  .pg-aiplatform .page-hero-inner { padding: 48px 14px 36px; }
+  .pg-aiplatform .hero-chip { font-size: 12px; padding: 7px 12px; }
+  .pg-aiplatform .problem-q { font-size: 18px; }
+  .pg-aiplatform .ps-problem-desc { font-size: 13px; }
+
+  /* Solution */
+  .pg-solution .page-hero-inner { padding: 48px 14px 36px; }
+  .pg-solution .afd-engine-title { font-size: 18px; }
+  .pg-solution .mod-card { padding: 18px 14px; }
+
+  /* GIVAS */
+  .pg-givas .givas-hero-layout { padding: 24px 14px 40px; gap: 28px; }
+  .pg-givas .givas-hero-title { font-size: clamp(22px, 8vw, 30px); }
+  .pg-givas .feat-header { padding: 16px 16px; gap: 10px; }
+  .pg-givas .feat-name { font-size: 15px; }
+
+  /* VMEPS */
+  .pg-vmeps .page-hero-inner { padding: 40px 14px 52px; gap: 36px; }
+  .pg-vmeps .vmeps-brand { font-size: clamp(28px, 11vw, 40px); }
+  .pg-vmeps .kpi-hero-num { font-size: 44px; }
+
+  /* RMEPS */
+  .pg-rmeps .page-hero-inner { padding: 0 14px 48px; }
+  .pg-rmeps .hero-title { font-size: clamp(24px, 8vw, 34px); }
+
+  /* Clients */
+  .pg-clients .page-hero-inner { padding: 48px 14px 36px; }
+  .pg-clients .t1-grid { grid-template-columns: 1fr; }
+  .pg-clients .limg { width: 120px; height: 52px; }
+
+  /* Company */
+  .pg-company .container { padding: 0 14px; }
+  .pg-company .gstat-num { font-size: 18px; }
+  .pg-company .greeting-body { font-size: 14px; }
+
+  /* FAQ */
+  .pg-faq .faq-wrap { padding: 28px 14px 48px; }
+  .pg-faq .faq-q { padding: 14px 14px; gap: 8px; }
+  .pg-faq .faq-q-text { font-size: 13px; }
+  .pg-faq .faq-a-inner { padding: 0 14px 18px 14px; font-size: 13px; }
+
+  /* Contact */
+  .pg-contact .page-hero-inner { padding: 48px 14px 36px; }
+  .pg-contact .contact-form { padding: 14px 12px; }
+  .pg-contact .form-input,
+  .pg-contact .form-select,
+  .pg-contact .form-textarea { font-size: 13px; padding: 9px 10px; }
+  .pg-contact .form-submit { font-size: 14px; padding: 12px 16px; }
+
+  /* Info */
+  .pg-info .page-hero-inner { padding: 48px 14px 0; }
+  .pg-info .cta-section-inner { padding: 0 14px; }
+
+  /* Footer */
+  .footer-main { padding: 24px 14px 20px; }
+  .footer-logo-img { height: 22px; }
+  .fi-val { font-size: 11px; }
+  .footer-copy { font-size: 10px; }
+}
+
+/* ── 가로 모드 (landscape) 작은 화면 ── */
+@media (max-height: 500px) and (max-width: 900px) {
+  #hero { min-height: auto; padding: 80px 0 40px; height: auto; }
+  .scroll-hint { display: none; }
+  .hero-content { padding: 0 24px; }
+  #hero .hero-title { font-size: clamp(28px, 5vw, 40px); }
+  .hero-typing { font-size: clamp(16px, 3vw, 22px); }
+  .hero-desc { font-size: 14px; margin-bottom: 24px; }
+  .btn-primary, .btn-ghost { padding: 11px 20px; font-size: 14px; }
+}
+
+/* ── 프린트 미디어 ── */
+@media print {
+  header, footer, .hamburger, .mobile-nav, .scroll-hint,
+  .hero-cta, .cta-section, .btn-primary, .btn-ghost,
+  .btn-cta-primary, .btn-cta-ghost { display: none !important; }
+  body { background: #fff !important; color: #000 !important; }
+  .container { max-width: 100%; padding: 0 20px; }
+}

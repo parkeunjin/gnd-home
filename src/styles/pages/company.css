@@ -1,0 +1,573 @@
+.pg-company .page-hero{margin-top:var(--nav);padding:100px 0 0;position:relative;overflow:hidden}
+.pg-company .page-hero-inner{max-width:1280px;margin:0 auto;padding:100px 56px 60px;position:relative;z-index:1;text-align:center}
+.pg-company .page-title{font-size:clamp(26px,5vw,52px);font-weight:700;color:var(--white);line-height:1.12;letter-spacing:-.04em;margin-bottom:20px;opacity:0;animation:fadeUp .8s .2s ease forwards}
+.pg-company .page-title em{background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:normal}
+
+.pg-company .page-desc{font-size:clamp(14px,3.5vw,18px);color:var(--muted);line-height:1.85;max-width:620px;margin:0 auto;opacity:0;animation:fadeUp .8s .4s ease forwards}
+
+@font-face {
+  font-family: "NanumSonPyeonJiCe";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSonPyeonJiCe.woff") format("woff");
+}
+
+.pg-company .page-hero::before{
+  content: ''; position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(96,165,250,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(96,165,250,.045) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,.7) 0%, transparent 80%);
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,.7) 0%, transparent 80%);
+  pointer-events: none; z-index: 0;
+}
+
+.pg-company .page-hero-title span{ color: var(--accent); }
+
+/* ══════════════════════════════════════════
+   CEO 섹션
+══════════════════════════════════════════ */
+.pg-company .sec-ceo{
+  padding: 60px 40px 100px; position: relative;
+  box-sizing: border-box; width: 100%; max-width: 1280px; margin: 0 auto;
+}
+.pg-company .sec-ceo::before{
+  content: ''; position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(96,165,250,.042) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(96,165,250,.042) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,.55) 0%, rgba(0,0,0,.15) 45%, transparent 100%);
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,.55) 0%, rgba(0,0,0,.15) 45%, transparent 100%);
+  pointer-events: none; z-index: 0;
+}
+.pg-company .sec-ceo > *{ position: relative; z-index: 1; }
+
+.pg-company .ceo-quote-text {
+  font-family: var(--script); font-style: normal; font-weight: 500;
+  font-size: clamp(22px,2.5vw,32px); line-height: 1.85; color: var(--text);
+  letter-spacing: .01em; margin-bottom: 0;
+}
+.pg-company .ceo-quote-text em{ font-style: normal; color: var(--accent); font-weight: 600; }
+.pg-company .ceo-body {
+  font-size: 16px; color: var(--muted); line-height: 1.95;
+  text-align:left; max-width:640px; margin:0 auto;
+}
+.pg-company .ceo-sig-area {
+  margin-top: 28px; display: flex; flex-direction:column;
+  align-items: center; gap: 4px; position: relative; z-index: 3;
+}
+.pg-company .ceo-sig-name{
+  font-family: var(--display); font-size: 24px; font-weight: 700;
+  color: #fff; letter-spacing: .06em; margin-bottom: 5px;
+}
+.pg-company .ceo-sig-role{
+  font-size: 16px; color: var(--accent); font-weight: 500;
+  letter-spacing: .08em; text-transform: uppercase; opacity: .8;
+}
+
+/* ══════════════════════════════════════════
+   인증서 슬라이더
+══════════════════════════════════════════ */
+.pg-company .cert-slider-wrap{ margin-top: 56px; }
+.pg-company .cert-slider-label{
+  font-size: 15px; font-weight: 700; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--accent); opacity: .7;
+  margin-bottom: 20px; display: flex; align-items: center; gap: 12px;
+}
+.cert-slider-label::before,
+.pg-company .cert-slider-label::after{
+  content: ''; flex: 1; height: 1px; background: rgba(96,165,250,.15);
+}
+.pg-company .cert-slider-mask{
+  position: relative; overflow: hidden;
+}
+.cert-slider-mask::before,
+.pg-company .cert-slider-mask::after{
+  content: ''; position: absolute; top: 0; bottom: 0;
+  width: 80px; z-index: 2; pointer-events: none;
+}
+.pg-company .cert-slider-mask::before{ left: 0; background: linear-gradient(to right, var(--bg), transparent); }
+.pg-company .cert-slider-mask::after{ right: 0; background: linear-gradient(to left, var(--bg), transparent); }
+.pg-company .cert-track{
+  display: flex; gap: 20px; align-items: flex-start;
+  animation: certScroll 36s linear infinite; width: max-content;
+}
+.pg-company .cert-track:hover{ animation-play-state: paused; }
+@keyframes certScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+.pg-company .cert-card{
+  flex-shrink: 0; border-radius: 12px;
+  background: rgba(8,14,32,.9); border: 1px solid rgba(96,165,250,.15);
+  overflow: hidden; cursor: pointer; position: relative;
+  transition: border-color .25s, transform .2s, box-shadow .2s;
+}
+.pg-company .cert-card:hover{
+  border-color: rgba(96,165,250,.5);
+  transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,.5);
+}
+.pg-company .cert-card-ov{
+  position: absolute; inset: 0; display: flex;
+  align-items: center; justify-content: center;
+  background: rgba(4,9,26,.4); opacity: 0; transition: opacity .25s;
+}
+.pg-company .cert-card:hover .cert-card-ov{ opacity: 1; }
+.pg-company .cert-zoom{
+  width: 46px; height: 46px; border-radius: 50%;
+  background: rgba(96,165,250,.12); border: 1.5px solid rgba(96,165,250,.55);
+  display: flex; align-items: center; justify-content: center;
+}
+.pg-company .cert-zoom svg{
+  width: 20px; height: 20px; stroke: rgba(96,165,250,.95); fill: none;
+  stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+}
+.pg-company .cert-card img{
+  width: auto; height: 240px;
+  object-fit: contain; background: #080e20; padding: 10px;
+}
+
+/* ══════════════════════════════════════════
+   라이트박스
+══════════════════════════════════════════ */
+.pg-company .lightbox{
+  position: fixed; inset: 0; z-index: 9999;
+  background: rgba(0,0,0,.93);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none; transition: opacity .3s; padding: 40px;
+}
+.pg-company .lightbox.open{ opacity: 1; pointer-events: all; }
+.pg-company .lightbox-img{
+  max-width: 90vw; max-height: 88vh; object-fit: contain;
+  border-radius: 8px; box-shadow: 0 0 80px rgba(0,0,0,.8);
+}
+.pg-company .lightbox-close{
+  position: absolute; top: 24px; right: 28px;
+  width: 44px; height: 44px; border-radius: 50%;
+  background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.18);
+  color: #fff; font-size: 20px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background .2s; line-height: 1;
+}
+.pg-company .lightbox-close:hover{ background: rgba(255,255,255,.22); }
+.pg-company .lightbox-nav{
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 50px; height: 50px; border-radius: 50%;
+  background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.18);
+  color: #fff; font-size: 28px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background .2s; line-height: 1;
+}
+.pg-company .lightbox-nav:hover{ background: rgba(255,255,255,.22); }
+.pg-company .lightbox-prev{ left: 20px; }
+.pg-company .lightbox-next{ right: 20px; }
+.pg-company .lightbox-counter{
+  position: absolute; bottom: 18px; left: 50%; transform: translateX(-50%);
+  font-size: 14px; color: rgba(255,255,255,.4); letter-spacing: .1em;
+}
+
+/* ══════════════════════════════════════════
+   보도자료 플립북
+══════════════════════════════════════════ */
+.pg-company .sec-press{
+  padding:80px 0;
+  background:rgba(4,12,34,.72);
+}
+.pg-company .flipbook-outer{ width: 100%; position: relative; }
+.pg-company .flipbook{
+  width: 100%; aspect-ratio: 1.414 / 1;
+  position: relative; overflow: hidden;
+  border-radius: 4px; box-shadow: 0 20px 60px rgba(0,0,0,.5);
+}
+.pg-company .flipbook::after{
+  content: ''; position: absolute; top: 0; bottom: 0; left: 50%; width: 2px;
+  background: linear-gradient(to bottom,
+    transparent, rgba(0,0,0,.4) 30%, rgba(0,0,0,.4) 70%, transparent);
+  pointer-events: none; z-index: 10;
+}
+.pg-company .flipbook-inner{
+  position: absolute; inset: 0;
+  display: grid; grid-template-columns: 1fr 1fr;
+  overflow: hidden; background: #fff;
+}
+.pg-company .fb-page{
+  background: #fff; overflow: hidden;
+  width: 100%; height: 100%;
+}
+.pg-company .fb-page.portrait-single{
+  display: flex; align-items: center; justify-content: center;
+}
+.pg-company .fb-page.portrait-single img{
+  width: 100%; height: 100%; object-fit: contain;
+}
+/* 좌우 클릭 영역 */
+.pg-company .fb-click-l, .pg-company .fb-click-r{
+  position: absolute; top: 0; width: 50%; height: 100%;
+  cursor: pointer; z-index: 5;
+}
+.pg-company .fb-click-l{ left: 0; }
+.pg-company .fb-click-r{ right: 0; }
+/* 모바일 버튼 (PC에서 숨김) */
+.pg-company .fb-mobile-btn{
+  display: none; position: absolute; top: 50%; transform: translateY(-50%);
+  background: rgba(255,255,255,.15); border: none; border-radius: 50%;
+  width: 36px; height: 36px; font-size: 20px; color: #fff;
+  align-items: center; justify-content: center; cursor: pointer; z-index: 6;
+}
+.pg-company .fb-mobile-btn.prev{ left: 6px; }
+.pg-company .fb-mobile-btn.next{ right: 6px; }
+/* 하단 컨트롤 바 */
+.pg-company .fb-controls{
+  display: flex; align-items: center; justify-content: center;
+  gap: 16px; margin-top: 20px;
+}
+.pg-company .fb-dots{ display: flex; align-items: center; gap: 8px; }
+.pg-company .fb-dot{
+  width: 10px; height: 10px; border-radius: 50%;
+  border: 1.5px solid rgba(96,165,250,.35);
+  background: transparent; cursor: pointer; padding: 0;
+  transition: all .2s;
+}
+.pg-company .fb-dot.active{
+  width: 13px; height: 13px;
+  background: var(--accent); border-color: var(--accent);
+  box-shadow: 0 0 8px rgba(96,165,250,.6);
+}
+.pg-company .fb-fullbtn{
+  background: rgba(96,165,250,.12); border: 1.5px solid rgba(96,165,250,.5);
+  color: rgba(96,165,250,1); padding: 7px 16px;
+  border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer;
+  transition: background .2s;
+}
+.pg-company .fb-fullbtn:hover{ background: rgba(96,165,250,.22); }
+/* ── 전체화면 오버레이 ── */
+.pg-company .fb-overlay{
+  display: none;
+  position: fixed; inset: 0;
+  background: rgba(2,6,20,.96);
+  z-index: 9000;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 16px;
+}
+.pg-company .fb-overlay.open{ display: flex; }
+
+/* Overlay inner */
+.pg-company .fb-overlay-inner{
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  overflow: hidden;
+  padding: 0 64px;
+  box-sizing: border-box;
+}
+.pg-company .fb-overlay-book{
+  width: 100%;
+  max-width: 1200px;
+  height: calc(100vh - 120px);
+  display: flex;
+  align-items: stretch;
+}
+
+/* Each spread = 2 panels side by side */
+.pg-company .fb-ov-spread{
+  display: flex;
+  gap: 12px;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+}
+.pg-company .fb-ov-panel{
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border-radius: 4px;
+  overflow: hidden;
+  height: 100%;
+  box-shadow: 0 8px 40px rgba(0,0,0,.6);
+}
+.pg-company .fb-ov-panel img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.pg-company .fb-ov-empty{
+  flex: 1;
+  background: rgba(255,255,255,.02);
+  border-radius: 4px;
+  height: 100%;
+}
+.pg-company .fb-ov-ending{
+  background: linear-gradient(160deg, #0a1830 0%, #060e1c 100%) !important;
+}
+.pg-company .fb-ov-page{
+  max-width: 90vw; max-height: 88vh;
+  box-shadow: 0 0 80px rgba(0,0,0,.8);
+  background: #fff; border-radius: 4px;
+  overflow: hidden; display: flex;
+  align-items: center; justify-content: center;
+}
+.pg-company .fb-ov-page img{
+  width: auto; height: auto;
+  max-width: 90vw; max-height: 88vh;
+  object-fit: contain; display: block;
+}
+.pg-company .fb-ov-page.fb-ending{
+  background: #06101e;
+  border-radius: 8px; box-shadow: 0 0 80px rgba(0,0,0,.8);
+  width: 100%; height: 100%;
+}
+/* 엔딩 내부 레이아웃 */
+.pg-company .fb-page.fb-ending, .pg-company .fb-ov-page.fb-ending{
+  background: linear-gradient(160deg, #0a1830 0%, #060e1c 100%);
+}
+.pg-company .ending-inner{
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  height: 100%; padding: 32px 24px; text-align: center; gap: 14px;
+}
+.pg-company .ending-logo{
+  font-size: clamp(18px, 2.5vw, 32px); font-weight: 900;
+  letter-spacing: .14em; color: #fff;
+  text-shadow: 0 0 32px rgba(96,165,250,.5);
+  margin-bottom: 4px;
+}
+.pg-company .ending-logo-text{
+  font-family: var(--display); font-size: clamp(20px, 3vw, 38px);
+  font-weight: 800; letter-spacing: .14em; color: #fff;
+  text-shadow: 0 0 32px rgba(96,165,250,.5);
+}
+.pg-company .ending-tagline{
+  font-size: clamp(11px, 1.3vw, 15px); color: rgba(148,179,255,.8);
+  line-height: 1.7; letter-spacing: .04em; word-break: keep-all;
+}
+.pg-company .ending-line{
+  width: 40px; height: 1px;
+  background: rgba(96,165,250,.35); margin: 4px auto;
+}
+.pg-company .ending-info{
+  font-size: clamp(10px, 1.1vw, 13px); color: rgba(148,179,255,.6);
+  letter-spacing: .06em;
+}
+.pg-company .ending-copy{
+  font-size: clamp(9px, 0.9vw, 11px); color: rgba(148,179,255,.35);
+  letter-spacing: .05em; margin-top: 2px;
+}
+.pg-company .ending-blank{ background: linear-gradient(160deg, #0a1830 0%, #060e1c 100%); }
+/* 닫기 — 라이트박스 .lightbox-close 와 동일 */
+.pg-company .fb-overlay-close{
+  position: absolute; top: 24px; right: 28px;
+  width: 44px; height: 44px; border-radius: 50%;
+  background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.18);
+  color: #fff; font-size: 20px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background .2s; line-height: 1; z-index: 10000;
+}
+.pg-company .fb-overlay-close:hover{ background: rgba(255,255,255,.22); }
+/* 좌우 화살표 — 라이트박스 .lightbox-nav 와 동일 */
+.pg-company .fb-ov-prev, .pg-company .fb-ov-next{
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 50px; height: 50px; border-radius: 50%;
+  background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.18);
+  color: #fff; font-size: 28px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background .2s; line-height: 1; z-index: 10000;
+}
+.pg-company .fb-ov-prev:hover, .pg-company .fb-ov-next:hover{ background: rgba(255,255,255,.22); }
+/* 카운터 — 라이트박스 .lightbox-counter 와 동일 */
+.pg-company .fb-overlay-counter{
+  position: absolute; bottom: 18px; left: 50%; transform: translateX(-50%);
+  font-size: 14px; color: rgba(255,255,255,.4); letter-spacing: .1em;
+}
+
+/* ══════════════════════════════════════════
+   오시는 길
+══════════════════════════════════════════ */
+.pg-company .sec-location{
+  padding:80px 0;
+  background:var(--bg);
+}
+.pg-company .loc-body{
+  display: grid; grid-template-columns: 260px 1fr;
+  border-radius: 16px; overflow: hidden;
+}
+.pg-company .loc-info{
+  background: rgba(4,12,34,.95); padding: 36px 28px;
+  display: flex; flex-direction: column; gap: 18px;
+}
+.pg-company .loc-info-title{
+  font-size: 17px; font-weight: 700; color: #fff; letter-spacing: .08em;
+}
+.pg-company .loc-row2{ display: flex; flex-direction: column; gap: 3px; }
+.pg-company .loc-lbl2{
+  font-size: 11px; color: var(--accent); font-weight: 600;
+  letter-spacing: .1em; text-transform: uppercase; opacity: .75;
+}
+.pg-company .loc-val2{ font-size: 13px; color: rgba(255,255,255,.7); line-height: 1.6; }
+.pg-company .loc-val2 a{ color: rgba(255,255,255,.7); text-decoration: none; }
+.pg-company .loc-map-wrap{
+  position: relative; overflow: hidden; min-height: 380px;
+}
+.pg-company .loc-map-wrap iframe{
+  position: absolute; inset: 0; width: 100%; height: 100%; border: 0;
+}
+
+/* ══════════════════════════════════════════
+   FOOTER
+══════════════════════════════════════════ */
+
+/* ══════════════════════════════════════════
+   REVEAL 애니메이션
+══════════════════════════════════════════ */
+.pg-company .reveal{
+  opacity: 0; transform: translateY(20px);
+  transition: opacity .55s ease, transform .55s ease;
+}
+.pg-company .reveal.visible{ opacity: 1; transform: none; }
+
+/* ══════════════════════════════════════════
+   반응형
+══════════════════════════════════════════ */
+
+/* ── CEO 인사말 ── */
+.pg-company .sec-ceo{
+  padding:72px 0 80px;background:var(--bg2);position:relative;
+}
+.pg-company .greeting-wrap{
+  display:grid;grid-template-columns:1fr 360px;gap:60px;align-items:start;
+}
+.pg-company .greeting-badge{
+  display:inline-block;font-size:15px;font-weight:700;
+  letter-spacing:.06em;text-transform:uppercase;
+  color:var(--white);
+  margin-bottom:20px;
+  background:none;border:none;padding:0;
+}
+.pg-company .greeting-body{
+  font-size:16px;color:var(--muted);line-height:1.95;margin-bottom:16px;
+}
+.pg-company .greeting-stats{
+  display:flex;align-items:center;
+  padding-top:24px;margin-top:8px;
+  border-top:1px solid rgba(255,255,255,.06);
+}
+.pg-company .gstat{
+  flex:1;text-align:center;padding:0 16px;
+}
+.pg-company .gstat:first-child{padding-left:0}
+.pg-company .gstat-num{
+  display:block;font-family:var(--display);font-size:34px;
+  font-weight:700;color:var(--white);line-height:1;margin-bottom:6px;
+}
+.pg-company .gstat-label{font-size:14px;color:var(--muted);font-weight:500}
+.pg-company .gstat-divider{width:1px;height:36px;background:rgba(255,255,255,.07);flex-shrink:0}
+
+/* Quote card */
+.pg-company .gqc{
+  background:linear-gradient(145deg,rgba(10,22,50,.95),rgba(4,9,26,.98));
+  border:1px solid rgba(96,165,250,.16);border-radius:16px;
+  padding:36px 32px 32px;position:relative;overflow:hidden;
+}
+.pg-company .gqc::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--accent),transparent);
+}
+.pg-company .gqc-mark{
+  font-family:Georgia,serif;font-size:72px;line-height:.6;
+  color:var(--accent);opacity:.2;display:block;margin-bottom:4px;
+}
+.pg-company .gqc-text{
+  font-size:17px;color:var(--text);line-height:1.85;margin-bottom:28px;
+  font-family:'Noto Serif KR','Georgia','serif';
+  font-style:italic;letter-spacing:.01em;
+}
+.pg-company .gqc-text em{color:var(--accent);font-style:normal;font-weight:600}
+.pg-company .gqc-footer{
+  display:flex;flex-direction:column;gap:4px;
+  padding-top:20px;border-top:1px solid rgba(255,255,255,.07);
+}
+.pg-company .gqc-role{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);opacity:.7}
+
+/* Cert section */
+
+@media (max-width: 1024px) {
+
+
+}
+@media (max-width: 900px) {
+
+  .pg-company .flipbook{ aspect-ratio: .707 / 1; }
+  .pg-company .flipbook::after{ display: none; }
+  .pg-company .fb-click-l, .pg-company .fb-click-r{ display: none; }
+  .pg-company .fb-mobile-btn{ display: flex; }
+
+}
+@media (max-width: 768px) {
+  .pg-company .gnb{ display: none; }
+  .pg-company .nav-inner{ padding: 0 20px; }
+  .pg-company .container{ padding: 0 20px; }
+  .pg-company .sec-ceo{ padding: 32px 16px 48px; }
+
+}
+@media (max-width: 540px) {
+  .pg-company .cert-card img{ height: 110px; }
+  .pg-company .sec-title{ font-size: 20px; }
+}
+@media(max-width:1024px){
+  .pg-company .greeting-wrap{grid-template-columns:1fr;gap:40px}
+  .pg-company .greeting-right{max-width:100%}
+  .pg-company .gqc{padding:30px 26px}
+  .pg-company .gqc-text{font-size:16px}
+}
+@media(max-width:768px){
+  /* Greeting */
+  .pg-company .greeting-wrap{display:block}
+  .pg-company .greeting-left,.pg-company .greeting-right{width:100%}
+  .pg-company .greeting-stats{gap:0;flex-wrap:nowrap}
+  .pg-company .gstat{flex:1;padding:0 8px;min-width:0}
+  .pg-company .gstat-num{font-size:26px}
+  .pg-company .gstat-num em{font-size:26px}
+  .pg-company .gqc{padding:24px 20px}
+  .pg-company .gqc-text{font-size:15px}
+  .pg-company .gqc-name{font-size:20px}
+  /* Cert slider */
+  .pg-company .sec-cert{padding:24px 0}
+  /* Press/flipbook */
+  .pg-company .sec-press{padding:48px 0}
+  /* Location */
+  .pg-company .loc-body{grid-template-columns:1fr}
+  .pg-company .loc-map-wrap{min-height:240px}
+  /* Hero */
+  .pg-company .page-hero-inner{padding:60px 20px 40px}
+  .pg-company .page-title{font-size:clamp(26px,7vw,38px)}
+}
+
+/* PC: no line break in CEO quote */
+@media(min-width:1025px){
+  .pg-company .gqc-text br{display:none}
+}
+
+/* Overlay nav buttons */
+.pg-company .fb-ov-prev,
+.pg-company .fb-ov-next{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.2);
+  color: #fff;
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  font-size: 22px;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background .2s;
+  z-index: 9010;
+}
+.pg-company .fb-ov-prev{ left: 12px; }
+.pg-company .fb-ov-next{ right: 12px; }
+.pg-company .fb-ov-prev:hover,
+.pg-company .fb-ov-next:hover{ background: rgba(255,255,255,.22); }

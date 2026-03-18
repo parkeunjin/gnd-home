@@ -1,0 +1,280 @@
+.pg-contact .page-hero{margin-top:var(--nav);padding:100px 0 0;position:relative;overflow:hidden}
+.pg-contact .page-hero-inner{max-width:1280px;margin:0 auto;padding:100px 56px 60px;position:relative;z-index:1;text-align:center}
+.pg-contact .page-title{font-size:clamp(26px,5vw,52px);font-weight:700;color:var(--white);line-height:1.12;letter-spacing:-.04em;margin-bottom:20px;opacity:0;animation:fadeUp .8s .2s ease forwards}
+.pg-contact .page-title em{background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:normal}
+
+.pg-contact .page-desc{font-size:clamp(14px,3.5vw,18px);color:var(--muted);line-height:1.85;max-width:620px;margin:0 auto;opacity:0;animation:fadeUp .8s .4s ease forwards}
+
+.pg-contact .page-hero::before{
+  content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:100%;height:100%;
+  background:radial-gradient(ellipse at 50% 0%,rgba(26,86,219,.2) 0%,transparent 60%);
+  pointer-events:none;
+}
+.pg-contact .grid-bg{position:absolute;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(96,165,250,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(96,165,250,.03) 1px,transparent 1px);background-size:48px 48px}
+
+.pg-contact .page-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(96,165,250,.1);border:1px solid rgba(96,165,250,.28);border-radius:100px;padding:5px 13px;font-size:11px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);margin-bottom:18px}
+.pg-contact .page-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 1.8s infinite;flex-shrink:0}
+
+/* ────────────────────────────────────────
+   CONTACT PATH CARDS  (Mobile First → 1 col)
+──────────────────────────────────────── */
+.pg-contact #contact-paths{padding:44px 0;background:var(--bg)}
+.pg-contact .paths-grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:32px}
+
+.pg-contact .path-card{
+  border-radius:18px;padding:24px 20px;
+  transition:transform .25s,box-shadow .25s;
+  position:relative;overflow:hidden;
+}
+.pg-contact .path-card:hover{transform:translateY(-4px)}
+.pg-contact .path-blue{background:linear-gradient(145deg,rgba(26,86,219,.14),rgba(12,26,58,.8));border:1px solid rgba(96,165,250,.3);box-shadow:0 4px 24px rgba(26,86,219,.08)}
+.pg-contact .path-blue:hover{box-shadow:0 12px 40px rgba(26,86,219,.2)}
+.pg-contact .path-green{background:linear-gradient(145deg,rgba(5,150,105,.14),rgba(12,26,58,.8));border:1px solid rgba(52,211,153,.3);box-shadow:0 4px 24px rgba(5,150,105,.08)}
+.pg-contact .path-green:hover{box-shadow:0 12px 40px rgba(5,150,105,.2)}
+.pg-contact .path-orange{background:linear-gradient(145deg,rgba(180,83,9,.14),rgba(12,26,58,.8));border:1px solid rgba(251,146,60,.3);box-shadow:0 4px 24px rgba(180,83,9,.08)}
+.pg-contact .path-orange:hover{box-shadow:0 12px 40px rgba(180,83,9,.2)}
+
+.pg-contact .path-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 0 16px}
+.pg-contact .path-blue .path-icon{background:rgba(26,86,219,.18);color:var(--accent)}
+.pg-contact .path-green .path-icon{background:rgba(5,150,105,.18);color:var(--green)}
+.pg-contact .path-orange .path-icon{background:rgba(180,83,9,.18);color:var(--orange)}
+.pg-contact .path-icon svg{width:24px;height:24px}
+
+.pg-contact .path-label{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px}
+.pg-contact .path-blue .path-label{color:var(--accent)}
+.pg-contact .path-green .path-label{color:var(--green)}
+.pg-contact .path-orange .path-label{color:var(--orange)}
+
+.pg-contact .path-title{font-size:18px;font-weight:700;color:var(--white);letter-spacing:-.02em;margin-bottom:8px}
+.pg-contact .path-desc{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:16px}
+.pg-contact .path-items{display:flex;flex-direction:column;gap:6px;margin-bottom:18px}
+.pg-contact .path-item{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted)}
+.pg-contact .path-item::before{content:'';width:4px;height:4px;border-radius:50%;flex-shrink:0}
+.pg-contact .path-blue .path-item::before{background:var(--accent)}
+.pg-contact .path-green .path-item::before{background:var(--green)}
+.pg-contact .path-orange .path-item::before{background:var(--orange)}
+
+.pg-contact .path-btn{
+  display:flex;align-items:center;justify-content:center;gap:7px;
+  font-size:14px;font-weight:600;padding:13px 20px;border-radius:9px;
+  width:100%;transition:background .2s,border-color .2s;min-height:48px;
+}
+.pg-contact .path-blue .path-btn{color:var(--accent);border:1px solid rgba(96,165,250,.3)}
+.pg-contact .path-blue .path-btn:hover{background:rgba(96,165,250,.1);border-color:var(--accent)}
+.pg-contact .path-green .path-btn{color:var(--green);border:1px solid rgba(52,211,153,.3)}
+.pg-contact .path-green .path-btn:hover{background:rgba(52,211,153,.1);border-color:var(--green)}
+.pg-contact .path-orange .path-btn{color:var(--orange);border:1px solid rgba(251,146,60,.3)}
+.pg-contact .path-orange .path-btn:hover{background:rgba(251,146,60,.1);border-color:var(--orange)}
+.pg-contact .path-btn svg{width:14px;height:14px;flex-shrink:0}
+
+/* ────────────────────────────────────────
+   FORM SECTION  (Mobile First)
+──────────────────────────────────────── */
+.pg-contact #contact-form-section{
+  padding:44px 0 64px;background:var(--bg2);
+}
+.pg-contact .form-layout{
+  display:grid;grid-template-columns:1fr;gap:24px;
+  margin-top:36px;
+}
+
+/* Form card */
+.pg-contact .contact-form{
+  background:rgba(12,26,58,.5);border:1px solid rgba(96,165,250,.12);
+  border-radius:18px;padding:20px 16px;
+  min-width:0;overflow:hidden;
+}
+.pg-contact .form-title{font-size:clamp(17px,4vw,21px);font-weight:700;color:var(--white);margin-bottom:5px;letter-spacing:-.02em}
+.pg-contact .form-subtitle{font-size:clamp(13px,3vw,15px);color:var(--muted);margin-bottom:20px}
+
+/* Form row: 1 col on mobile */
+.pg-contact .form-row{display:grid;grid-template-columns:1fr;gap:12px;margin-bottom:12px}
+.pg-contact .form-group{margin-bottom:10px;display:flex;flex-direction:column;gap:4px}
+.pg-contact .form-label{font-size:14px;font-weight:600;letter-spacing:.03em;color:var(--accent);text-transform:uppercase;opacity:.85}
+
+.pg-contact .form-input, .pg-contact .form-select, .pg-contact .form-textarea{
+  width:100%;background:rgba(4,9,26,.6);
+  border:1px solid rgba(96,165,250,.18);
+  border-radius:10px;padding:11px 13px;
+  font-family:var(--font);font-size:16px;color:var(--text);
+  transition:border-color .2s,background .2s;outline:none;
+  -webkit-appearance:none;
+  min-height:46px;box-sizing:border-box;
+}
+.pg-contact .form-input::placeholder, .pg-contact .form-textarea::placeholder{color:rgba(122,146,188,.4)}
+.pg-contact .form-input:focus, .pg-contact .form-select:focus, .pg-contact .form-textarea:focus{
+  border-color:rgba(96,165,250,.5);background:rgba(4,9,26,.9);
+}
+.pg-contact .form-select{
+  cursor:pointer;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%237A92BC' stroke-width='2.5'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 14px center;
+  padding-right:40px;
+}
+.pg-contact .form-select option{background:#070F26;color:var(--text)}
+.pg-contact .form-textarea{resize:vertical;min-height:90px;line-height:1.6}
+
+/* Checkbox group */
+.pg-contact .check-group{display:flex;flex-wrap:wrap;gap:8px}
+.pg-contact .check-label{
+  display:flex;align-items:center;gap:7px;
+  font-size:15px;font-weight:500;color:var(--muted);
+  cursor:pointer;padding:9px 12px;
+  border-radius:8px;border:1px solid rgba(96,165,250,.15);
+  background:rgba(4,9,26,.4);
+  transition:border-color .2s,color .2s,background .2s;
+  user-select:none;min-height:44px;
+}
+.pg-contact .check-label input[type=checkbox]{width:15px;height:15px;accent-color:var(--accent);cursor:pointer;flex-shrink:0}
+.pg-contact .check-label:has(input:checked){border-color:rgba(96,165,250,.45);background:rgba(96,165,250,.08);color:var(--text)}
+.pg-contact .check-ai .check-label:has(input:checked){border-color:rgba(96,165,250,.5);background:rgba(26,86,219,.1);color:var(--accent)}
+
+.pg-contact .form-divider{height:1px;background:rgba(96,165,250,.1);margin:20px 0}
+
+.pg-contact .form-submit{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  width:100%;background:var(--primary);color:var(--white);
+  font-family:var(--font);font-size:16px;font-weight:600;
+  padding:15px 24px;border-radius:10px;cursor:pointer;border:none;
+  transition:transform .2s,box-shadow .2s;
+  box-shadow:0 0 24px rgba(26,86,219,.35);
+  min-height:52px;
+}
+.pg-contact .form-submit:hover{transform:translateY(-2px);box-shadow:0 0 40px rgba(26,86,219,.6)}
+.pg-contact .form-submit svg{width:16px;height:16px}
+
+.pg-contact .form-notice{text-align:center;font-size:12px;color:var(--muted);margin-top:12px;opacity:.7}
+
+/* Success */
+
+.pg-contact .form-success.show{display:block}
+
+/* Sidebar */
+.pg-contact .contact-sidebar{display:flex;flex-direction:column;gap:14px;min-width:0}
+.pg-contact .contact-info-card{border-radius:16px;padding:20px 18px;background:linear-gradient(145deg,rgba(26,86,219,.08),rgba(12,26,58,.7));border:1px solid rgba(96,165,250,.15);overflow:hidden}
+.pg-contact .ci-title{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);opacity:.85;margin-bottom:16px}
+.pg-contact .ci-items{display:flex;flex-direction:column;gap:10px}
+.pg-contact .ci-item{display:flex;align-items:flex-start;gap:10px;min-width:0}
+.pg-contact .ci-icon{width:36px;height:36px;border-radius:9px;background:rgba(26,86,219,.15);color:var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.pg-contact .ci-icon svg{width:16px;height:16px}
+.pg-contact .ci-label{font-size:11px;color:var(--muted);margin-bottom:1px;letter-spacing:.04em;font-weight:500}
+.pg-contact .ci-val{font-size:clamp(13px,3vw,16px);font-weight:600;color:var(--text);word-break:break-word;letter-spacing:-.01em}
+.pg-contact .ci-val a{color:var(--text);transition:color .2s}
+.pg-contact .ci-val a:hover{color:var(--accent)}
+
+.pg-contact .cert-card{border-radius:16px;padding:18px 16px;background:rgba(12,26,58,.4);border:1px solid rgba(96,165,250,.1);overflow:hidden}
+.pg-contact .cert-card-title{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;opacity:.8}
+.pg-contact .cert-badges{display:flex;flex-direction:column;gap:9px}
+.pg-contact .cert-badge-item{display:flex;align-items:center;gap:9px;font-size:14px;color:var(--text)}
+.pg-contact .cert-dot{width:5px;height:5px;border-radius:50%;background:var(--accent);opacity:.6;flex-shrink:0}
+
+/* ────────────────────────────────────────
+   FOOTER  (Mobile First)
+──────────────────────────────────────── */
+
+/* ────────────────────────────────────────
+   KEYFRAMES
+──────────────────────────────────────── */
+/* fadeUp은 global.css에서 정의 */
+
+/* ════════════════════════════════════════
+   TABLET  768px+
+════════════════════════════════════════ */
+/* ════════════════════════════════════════
+   TABLET  768px+
+════════════════════════════════════════ */
+@media(min-width:768px){
+
+  .pg-contact .nav-inner{padding:0 32px}
+  .pg-contact .logo{font-size:26px}
+  .pg-contact .hamburger{display:none}
+  .pg-contact .gnb{display:flex}
+
+  .pg-contact .container{padding:0 32px}
+  .pg-contact .section{padding:64px 0}
+
+  /* Form layout: form + sidebar side by side on tablet */
+  .pg-contact .form-layout{grid-template-columns:1fr 300px;gap:28px}
+  .pg-contact .form-row{grid-template-columns:1fr 1fr;gap:14px}
+
+  /* Footer: 2 col */
+}
+
+/* ════════════════════════════════════════
+   DESKTOP  1025px+
+════════════════════════════════════════ */
+@media(min-width:1025px){
+  .pg-contact .nav-inner{padding:0 40px}
+  .pg-contact .container{padding:0 40px}
+  .pg-contact .section{padding:80px 0}
+
+  /* Paths: 3 col */
+  .pg-contact .paths-grid{grid-template-columns:repeat(3,1fr);gap:20px}
+
+  /* Form layout: wider sidebar */
+  .pg-contact .form-layout{grid-template-columns:1fr 360px;gap:44px}
+
+  /* Footer */
+}
+/* ════════════════════════════════════════
+   MOBILE 480px
+════════════════════════════════════════ */
+@media(max-width:480px){
+  .pg-contact .page-hero-inner{padding:60px 16px 40px}
+  .pg-contact #contact-paths{padding:32px 0}
+  .pg-contact .paths-grid{margin-top:24px}
+  .pg-contact .path-card{padding:20px 16px}
+  .pg-contact .path-title{font-size:16px}
+  .pg-contact .contact-form{padding:16px 14px}
+  .pg-contact .form-title{font-size:16px}
+  .pg-contact .form-subtitle{font-size:13px}
+  .pg-contact .form-input, .pg-contact .form-select, .pg-contact .form-textarea{font-size:14px;padding:10px 12px}
+  .pg-contact .check-label{font-size:14px;padding:8px 10px}
+  .pg-contact .form-submit{font-size:15px;padding:13px 20px}
+  .pg-contact .ci-val{font-size:14px}
+}
+.pg-contact .form-success{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:60px 32px;text-align:center;
+  min-height:320px;animation:fadeUp .5s ease;
+}
+.pg-contact .success-icon svg{
+  width:64px;height:64px;display:block;margin:0 auto 28px;
+}
+.pg-contact .success-title{
+  font-size:clamp(20px,3vw,26px);font-weight:700;
+  color:var(--white);margin-bottom:14px;letter-spacing:-.02em;
+}
+.pg-contact .success-desc{
+  font-size:16px;color:var(--muted);line-height:1.8;margin-bottom:32px;
+}
+.pg-contact .success-desc a{color:var(--accent)}
+.pg-contact .success-back-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:12px 28px;border-radius:10px;
+  border:1px solid rgba(96,165,250,.35);
+  background:rgba(96,165,250,.07);
+  color:var(--text);font-size:15px;font-weight:500;
+  cursor:pointer;transition:background .2s,border-color .2s;
+}
+.pg-contact .success-back-btn:hover{background:rgba(96,165,250,.14);border-color:rgba(96,165,250,.6)}
+.pg-contact .success-back-btn svg{width:16px;height:16px;flex-shrink:0}
+
+/* Input validation error state */
+.pg-contact .form-input.input-error,
+.pg-contact .form-textarea.input-error,
+.pg-contact .form-select.input-error{
+  border-color:rgba(239,68,68,.7)!important;
+  background:rgba(239,68,68,.04)!important;
+}
+.pg-contact .form-input.input-error:focus,
+.pg-contact .form-textarea.input-error:focus{
+  border-color:rgba(239,68,68,.9)!important;
+  box-shadow:0 0 0 3px rgba(239,68,68,.12)!important;
+}
+
+/* Sending state */
+.pg-contact .form-submit:disabled{
+  opacity:.6;cursor:not-allowed;transform:none!important;
+}
