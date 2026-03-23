@@ -184,16 +184,16 @@ export default function CompanyPage() {
     <div className="grid-bg"></div>
     <div className="page-hero-inner">
       <h1 className="page-title">
-        우리는 공장 바닥을 알고,<br/><em>코드로 문제를 해결합니다</em>
+        15년, 현장에서 증명한<br/><em>제조 혁신의 파트너</em>
       </h1>
       <p className="page-desc">
-        15년 동안 대한민국 제조 현장에서 쌓은 경험은 어떤 교과서에도 없습니다.<br/>
-        그 경험이 지엔디비즈의 코드 한 줄, 설계 한 장에 담겨 있습니다.
+        대기업부터 중견기업까지, 100개사 이상의 제조 현장을 직접 누빈 경험.<br/>
+        그 경험이 지엔디비즈의 솔루션과 AI 기술에 고스란히 담겨 있습니다.
       </p>
       <div className="company-hero-pillars">
         <div className="company-hero-pillar">
-          <span className="chp-word">현장</span>
-          <span className="chp-desc">이론이 아닌 바닥에서 만든 솔루션</span>
+          <span className="chp-word">진단</span>
+          <span className="chp-desc">현장을 직접 보고 문제를 찾습니다</span>
         </div>
         <div className="company-hero-pillar">
           <span className="chp-word">맞춤</span>
@@ -210,83 +210,6 @@ export default function CompanyPage() {
       </div>
     </div>
   </div>
-
-  {/* ── 핵심 원칙 (PRINCIPLES) ── */}
-  <section className="sec-principles">
-    <div className="container">
-      <div className="sec-head-center reveal">
-        <h2 className="sec-title">우리가 지키는 원칙</h2>
-        <p className="sec-desc">모든 프로젝트, 모든 코드, 모든 현장에서<br/>변하지 않는 지엔디비즈의 기준입니다</p>
-      </div>
-      <div className="principles-grid">
-        <div className="principle-card reveal" style={{transitionDelay:".05s"}}>
-          <div className="pc-num-big">01</div>
-          <h3 className="pc-title">현장 최우선</h3>
-          <p className="pc-desc">이론보다 현장을 먼저 봅니다. 도입 전 반드시 현장을 직접 방문하고, 실제 작업자의 흐름을 기반으로 시스템을 설계합니다.</p>
-        </div>
-        <div className="principle-card reveal" style={{transitionDelay:".1s"}}>
-          <div className="pc-num-big">02</div>
-          <h3 className="pc-title">책임 있는 납기</h3>
-          <p className="pc-desc">약속한 일정을 지킵니다. 25년 경력 전담 QA가 직접 투입되며, 장애 발생 시 7단계 복구 프로세스로 최단 시간 내 복구를 보장합니다.</p>
-        </div>
-        <div className="principle-card reveal" style={{transitionDelay:".15s"}}>
-          <div className="pc-num-big">03</div>
-          <h3 className="pc-title">맞춤 개발 원칙</h3>
-          <p className="pc-desc">범용 패키지를 강요하지 않습니다. 기업의 업종·규모·프로세스에 맞는 기능만 개발하고, 불필요한 기능으로 복잡성을 높이지 않습니다.</p>
-        </div>
-        <div className="principle-card reveal" style={{transitionDelay:".2s"}}>
-          <div className="pc-num-big">04</div>
-          <h3 className="pc-title">데이터 기반 성장</h3>
-          <p className="pc-desc">감이 아닌 데이터로 판단합니다. 구축 후에도 KPI 모니터링을 통해 도입 효과를 수치로 증명하고, 지속적인 개선을 지원합니다.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  {/* ── 협업 방식 (HOW WE WORK) ── */}
-  <section className="sec-howwework">
-    <div className="container">
-      <div className="sec-head-center reveal">
-        <h2 className="sec-title">우리의 협업 방식</h2>
-        <p className="sec-desc">프로젝트 시작부터 운영까지,<br/>지엔디비즈는 파트너로서 함께합니다</p>
-      </div>
-      <div className="hww-track">
-        <div className="hww-card hww-card-1 reveal" style={{transitionDelay:".05s"}}>
-          <div className="hww-num">01</div>
-          <div className="hww-phase">DISCOVER</div>
-          <h3 className="hww-title">현장 분석 · 진단</h3>
-          <p className="hww-desc">직접 현장을 방문해 생산 흐름, 데이터 구조, 병목 구간을 파악합니다. 현장 진단 리포트를 무상으로 제공합니다.</p>
-        </div>
-        <div className="hww-arrow reveal" style={{transitionDelay:".1s"}}>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
-        </div>
-        <div className="hww-card hww-card-2 reveal" style={{transitionDelay:".15s"}}>
-          <div className="hww-num">02</div>
-          <div className="hww-phase">DESIGN</div>
-          <h3 className="hww-title">맞춤 설계 · 프로토타이핑</h3>
-          <p className="hww-desc">실제 현장 작업자의 동선에 맞춰 UI·UX를 설계합니다. 프로토타입 단계에서 충분한 피드백을 반영합니다.</p>
-        </div>
-        <div className="hww-arrow reveal" style={{transitionDelay:".2s"}}>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
-        </div>
-        <div className="hww-card hww-card-3 reveal" style={{transitionDelay:".25s"}}>
-          <div className="hww-num">03</div>
-          <div className="hww-phase">BUILD</div>
-          <h3 className="hww-title">개발 · 통합 · 테스트</h3>
-          <p className="hww-desc">자체 개발팀과 25년 경력 QA가 함께 품질을 보장합니다. ERP·PLC·IoT 연동 전체 시스템 통합 테스트를 실시합니다.</p>
-        </div>
-        <div className="hww-arrow reveal" style={{transitionDelay:".3s"}}>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
-        </div>
-        <div className="hww-card hww-card-4 reveal" style={{transitionDelay:".35s"}}>
-          <div className="hww-num">04</div>
-          <div className="hww-phase">GROW</div>
-          <h3 className="hww-title">운영 · 고도화 · AI 전환</h3>
-          <p className="hww-desc">납품으로 끝나지 않습니다. 데이터 축적 후 GIVAS AI 연동으로 예지보전·이상탐지 자동화로 진화시킵니다.</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
   {/* ── 인증 · 수상 섹션 ── */}
   <section className="sec-cert-new">
@@ -385,6 +308,38 @@ export default function CompanyPage() {
     <div className="lightbox-counter" id="lb-counter"></div>
   </div>
 
+  {/* ── 핵심 원칙 (PRINCIPLES) ── */}
+  <section className="sec-principles">
+    <div className="container">
+      <div className="sec-head-center reveal">
+        <h2 className="sec-title">우리가 지키는 원칙</h2>
+        <p className="sec-desc">모든 프로젝트, 모든 코드, 모든 현장에서<br/>변하지 않는 지엔디비즈의 기준입니다</p>
+      </div>
+      <div className="principles-grid">
+        <div className="principle-card reveal" style={{transitionDelay:".05s"}}>
+          <div className="pc-num-big">01</div>
+          <h3 className="pc-title">현장 최우선</h3>
+          <p className="pc-desc">이론보다 현장을 먼저 봅니다. 도입 전 반드시 현장을 직접 방문하고, 실제 작업자의 흐름을 기반으로 시스템을 설계합니다.</p>
+        </div>
+        <div className="principle-card reveal" style={{transitionDelay:".1s"}}>
+          <div className="pc-num-big">02</div>
+          <h3 className="pc-title">책임 있는 납기</h3>
+          <p className="pc-desc">약속한 일정을 지킵니다. 25년 경력 전담 QA가 직접 투입되며, 장애 발생 시 7단계 복구 프로세스로 최단 시간 내 복구를 보장합니다.</p>
+        </div>
+        <div className="principle-card reveal" style={{transitionDelay:".15s"}}>
+          <div className="pc-num-big">03</div>
+          <h3 className="pc-title">맞춤 개발 원칙</h3>
+          <p className="pc-desc">범용 패키지를 강요하지 않습니다. 기업의 업종·규모·프로세스에 맞는 기능만 개발하고, 불필요한 기능으로 복잡성을 높이지 않습니다.</p>
+        </div>
+        <div className="principle-card reveal" style={{transitionDelay:".2s"}}>
+          <div className="pc-num-big">04</div>
+          <h3 className="pc-title">데이터 기반 성장</h3>
+          <p className="pc-desc">감이 아닌 데이터로 판단합니다. 구축 후에도 KPI 모니터링을 통해 도입 효과를 수치로 증명하고, 지속적인 개선을 지원합니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   {/* ── 보도자료 ── */}
   <section className="sec-press">
     <div className="container">
@@ -405,7 +360,7 @@ export default function CompanyPage() {
               <div className="fb-page portrait-single" data-spread="3" data-side="L" style={{display:"none"}}><img src="/images/company/press-p7.jpg" alt="보도자료 p7" loading="lazy"/></div>
               <div className="fb-page portrait-single" data-spread="3" data-side="R" style={{display:"none"}}><img src="/images/company/press-p8.jpg" alt="보도자료 p8" loading="lazy"/></div>
               <div className="fb-page portrait-single" data-spread="4" data-side="L" style={{display:"none"}}><img src="/images/company/press-p9.jpg" alt="보도자료 p9" loading="lazy"/></div>
-              <div className="fb-page fb-ending" data-spread="5" data-side="L" style={{display:"none"}}><div className="ending-inner"><div className="ending-logo"><span className="ending-logo-text">지엔디비즈</span></div><p className="ending-tagline">스마트팩토리 · AI로<br/>대한민국 제조의 내일을 설계합니다</p><div className="ending-line"></div><p className="ending-info">031-708-2997 &nbsp;|&nbsp; sbgwak@gmail.com</p><p className="ending-copy">© 지엔디비즈(GNDBIZ). All rights reserved.</p></div></div>
+              <div className="fb-page fb-ending" data-spread="5" data-side="L" style={{display:"none"}}><div className="ending-inner"><div className="ending-logo"><span className="ending-logo-text">지엔디비즈</span></div><p className="ending-tagline">스마트팩토리 · AI로<br/>대한민국 제조의 내일을 설계합니다</p><div className="ending-line"></div><p className="ending-info">031-708-2997 &nbsp;|&nbsp; eunjin.gndbiz@gmail.com</p><p className="ending-copy">© 지엔디비즈(GNDBIZ). All rights reserved.</p></div></div>
               <div className="fb-page fb-ending" data-spread="5" data-side="R" style={{display:"none"}}><div className="ending-inner ending-blank"></div></div>
             </div>
             <div className="fb-click-l" id="fb-click-l"></div>
@@ -439,6 +394,126 @@ export default function CompanyPage() {
     <div className="fb-overlay-counter" id="fb-ov-counter"></div>
   </div>
 
+  {/* ── 협업 방식 (HOW WE WORK) ── */}
+  <section className="sec-howwework">
+    <div className="container">
+      <div className="sec-head-center reveal">
+        <h2 className="sec-title">우리의 협업 방식</h2>
+        <p className="sec-desc">프로젝트 시작부터 운영까지,<br/>지엔디비즈는 파트너로서 함께합니다</p>
+      </div>
+      <div className="hww-track">
+        <div className="hww-card hww-card-1 reveal" style={{transitionDelay:".05s"}}>
+          <div className="hww-num">01</div>
+          <div className="hww-phase">DISCOVER</div>
+          <h3 className="hww-title">현장 분석 · 진단</h3>
+          <p className="hww-desc">직접 현장을 방문해 생산 흐름, 데이터 구조, 병목 구간을 파악합니다. 현장 진단 리포트를 무상으로 제공합니다.</p>
+        </div>
+        <div className="hww-arrow reveal" style={{transitionDelay:".1s"}}>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+        </div>
+        <div className="hww-card hww-card-2 reveal" style={{transitionDelay:".15s"}}>
+          <div className="hww-num">02</div>
+          <div className="hww-phase">DESIGN</div>
+          <h3 className="hww-title">맞춤 설계 · 프로토타이핑</h3>
+          <p className="hww-desc">실제 현장 작업자의 동선에 맞춰 UI·UX를 설계합니다. 프로토타입 단계에서 충분한 피드백을 반영합니다.</p>
+        </div>
+        <div className="hww-arrow reveal" style={{transitionDelay:".2s"}}>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+        </div>
+        <div className="hww-card hww-card-3 reveal" style={{transitionDelay:".25s"}}>
+          <div className="hww-num">03</div>
+          <div className="hww-phase">BUILD</div>
+          <h3 className="hww-title">개발 · 통합 · 테스트</h3>
+          <p className="hww-desc">자체 개발팀과 25년 경력 QA가 함께 품질을 보장합니다. ERP·PLC·IoT 연동 전체 시스템 통합 테스트를 실시합니다.</p>
+        </div>
+        <div className="hww-arrow reveal" style={{transitionDelay:".3s"}}>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+        </div>
+        <div className="hww-card hww-card-4 reveal" style={{transitionDelay:".35s"}}>
+          <div className="hww-num">04</div>
+          <div className="hww-phase">GROW</div>
+          <h3 className="hww-title">운영 · 고도화 · AI 전환</h3>
+          <p className="hww-desc">납품으로 끝나지 않습니다. 데이터 축적 후 GIVAS AI 연동으로 예지보전·이상탐지 자동화로 진화시킵니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* ── 연혁 ── */}
+  <section className="sec-timeline">
+    <div className="container">
+      <div className="sec-head-center reveal">
+        <h2 className="sec-title">2011년부터 현재까지<br/>구축으로 증명한 15년의 여정</h2>
+        <p className="sec-desc">스마트공장 구축에서 AI 솔루션으로 진화한 지엔디비즈의 역사</p>
+      </div>
+      <div className="timeline-body">
+
+        <div className="tl-row current reveal" style={{transitionDelay:".04s"}}>
+          <div className="tl-yr-col"><span className="tl-year">2026</span><div className="tl-dot"></div></div>
+          <div className="tl-content">
+            <div className="tl-in-progress"><span className="tl-in-progress-dot"></span>진행 중</div>
+            <div className="tl-cards">
+              <div className="tl-card"><div className="tl-txt"><strong>AI 플랫폼 통합 고도화</strong> — GIVAS · V-MEPS · R-MEPS 3개 솔루션 연동 확산 진행</div><span className="tl-tag tl-tag-current">진행중</span></div>
+              <div className="tl-card"><div className="tl-txt">중소기업 디지털 전환 지원사업 파트너로 <strong>신규 고객사 지속 확장</strong></div><span className="tl-tag tl-tag-default">확장</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div className="tl-row hl reveal" style={{transitionDelay:".07s"}}>
+          <div className="tl-yr-col"><span className="tl-year">2024</span><div className="tl-dot"></div></div>
+          <div className="tl-content">
+            <div className="tl-cards">
+              <div className="tl-card"><div className="tl-txt"><strong>R-MEPS 협동로봇·AGV 연동 AI 제어 솔루션</strong> 상용화 출시 — 로봇 자동화 신시장 진입</div><span className="tl-tag tl-tag-rd">R&amp;D</span></div>
+              <div className="tl-card"><div className="tl-txt"><strong>V-MEPS 비전 품질검사 플랫폼</strong> 다수 현장 양산 적용 — 불량률 <strong>40% 이상 감소</strong> 실증</div><span className="tl-tag tl-tag-rd">R&amp;D</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div className="tl-row hl2 reveal" style={{transitionDelay:".10s"}}>
+          <div className="tl-yr-col"><span className="tl-year">2022</span><div className="tl-dot"></div></div>
+          <div className="tl-content">
+            <div className="tl-cards">
+              <div className="tl-card"><div className="tl-txt"><strong>GIVAS AI 이상감지 플랫폼 출시</strong> — 화학·금속 업종 특화, 이상 감지 정확도 <strong>95% 이상</strong></div><span className="tl-tag tl-tag-rd">R&amp;D</span></div>
+              <div className="tl-card"><div className="tl-txt">스마트공장 구축 누적 <strong>100개사 돌파</strong> — 제조 전문 SI에서 AI 솔루션 기업으로 전환</div><span className="tl-tag tl-tag-milestone">마일스톤</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div className="tl-row hl reveal" style={{transitionDelay:".13s"}}>
+          <div className="tl-yr-col"><span className="tl-year">2020</span><div className="tl-dot"></div></div>
+          <div className="tl-content">
+            <div className="tl-cards">
+              <div className="tl-card"><div className="tl-txt"><strong>언택트 원격 구축·유지보수 체계</strong> 자체 확립 — 코로나 상황에서도 구축 무중단 유지</div><span className="tl-tag tl-tag-default">혁신</span></div>
+              <div className="tl-card"><div className="tl-txt">중소벤처기업부 <strong>스마트제조혁신 지원사업</strong> 공식 파트너 선정</div><span className="tl-tag tl-tag-default">인증</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div className="tl-row hl reveal" style={{transitionDelay:".16s"}}>
+          <div className="tl-yr-col"><span className="tl-year">2018</span><div className="tl-dot"></div></div>
+          <div className="tl-content">
+            <div className="tl-cards">
+              <div className="tl-card"><div className="tl-txt">연간 <strong>최다 8개사 스마트공장 동시 구축</strong> 완료</div><span className="tl-tag tl-tag-default">최다 실적</span></div>
+              <div className="tl-card"><div className="tl-txt"><strong>대한민국 기업대상 ICT 스마트팩토리 부문 수상</strong> — 머니투데이 주최</div><span className="tl-tag tl-tag-award">수상</span></div>
+              <div className="tl-card"><div className="tl-txt">KOSF <strong>스마트팩토리 전문공급기업 인증</strong> 획득</div><span className="tl-tag tl-tag-default">인증</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div className="tl-row hl2 reveal" style={{transitionDelay:".19s"}}>
+          <div className="tl-yr-col"><span className="tl-year">2011</span><div className="tl-dot"></div></div>
+          <div className="tl-content">
+            <div className="tl-cards">
+              <div className="tl-card"><div className="tl-txt"><strong>지엔디비즈 창업</strong> — 제조 현장 전문가 중심으로 설립 · 美 GRANTA Business와 MOU 체결</div><span className="tl-tag tl-tag-default">창립</span></div>
+              <div className="tl-card"><div className="tl-txt">국내 주요 제조사 <strong>PLM 파트너</strong>로 첫 사업 시작 — 창업 첫 해 <strong>2개사 동시 구축</strong> 성공</div><span className="tl-tag tl-tag-partner">첫 계약</span></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   {/* ── 오시는 길 ── */}
   <section className="sec-location">
     <div className="container">
@@ -451,7 +526,7 @@ export default function CompanyPage() {
           <div className="loc-row2"><span className="loc-lbl2">주소</span><span className="loc-val2">경기 성남시 분당구<br/>성남대로43번길 10<br/>(구미동, 하나EZ타워) 205, 206호</span></div>
           <div className="loc-row2"><span className="loc-lbl2">전화</span><span className="loc-val2"><a href="tel:031-708-2997">031-708-2997</a></span></div>
           <div className="loc-row2"><span className="loc-lbl2">FAX</span><span className="loc-val2">0505-902-2997</span></div>
-          <div className="loc-row2"><span className="loc-lbl2">이메일</span><span className="loc-val2"><a href="mailto:sbgwak@gmail.com">sbgwak@gmail.com</a></span></div>
+          <div className="loc-row2"><span className="loc-lbl2">이메일</span><span className="loc-val2"><a href="mailto:eunjin.gndbiz@gmail.com">eunjin.gndbiz@gmail.com</a></span></div>
           <div className="loc-row2"><span className="loc-lbl2">교통</span><span className="loc-val2">수인분당선 오리역 6번 출구<br/>도보 약 1분</span></div>
         </div>
         <div className="loc-map-wrap">

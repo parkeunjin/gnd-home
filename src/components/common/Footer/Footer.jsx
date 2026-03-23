@@ -23,7 +23,7 @@ export default function Footer() {
           </div>
           <div className="footer-info-row">
             <span className="fi-label">E-MAIL</span>
-            <span className="fi-val"><a href="mailto:sbgwak@gmail.com">sbgwak@gmail.com</a></span>
+            <span className="fi-val"><a href="mailto:eunjin.gndbiz@gmail.com">eunjin.gndbiz@gmail.com</a></span>
           </div>
         </div>
       </div>

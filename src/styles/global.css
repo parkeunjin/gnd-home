@@ -847,6 +847,7 @@ footer{background:#020714;border-top:1px solid rgba(96,165,250,.08)}
 }
 .sol-sticky-inner{
   padding:80px 60px 80px 0;
+  position:relative;
 }
 .sol-sticky-title{
   font-size:clamp(36px,4.2vw,58px);
@@ -1432,6 +1433,7 @@ footer{background:#020714;border-top:1px solid rgba(96,165,250,.08)}
 .ai-sticky-inner {
   padding: 144px 0 80px 60px;
   text-align: left;
+  position: relative;
 }
 .ai-sticky-title {
   font-size: clamp(36px,4.2vw,58px);
@@ -1506,4 +1508,52 @@ footer{background:#020714;border-top:1px solid rgba(96,165,250,.08)}
   .ai-sticky-wrap { padding: 52px 20px; }
   .ai-sticky-title { font-size: clamp(26px,8vw,34px); }
   .ai-si-num { font-size: clamp(30px,9vw,42px); }
+}
+
+
+
+/* ══ sticky 타이틀 패널 SVG 아이콘 워터마크 ══ */
+/* 솔루션: sol-sticky-left(타이틀) / AI: ai-sticky-right(타이틀) 기준 우하단 */
+.sol-sticky-left,
+.ai-sticky-right {
+  position: relative;
+  overflow: hidden;
+}
+.sol-wm-wrap,
+.ai-wm-wrap {
+  position: absolute;
+  right: -30px;
+  bottom: -30px;
+  pointer-events: none;
+  z-index: 0;
+}
+.sticky-wm-icon {
+  width: clamp(200px, 26vw, 340px);
+  height: clamp(200px, 26vw, 340px);
+  color: rgba(96,165,250,.055);
+  user-select: none;
+  pointer-events: none;
+  display: block;
+}
+/* 콘텐츠가 아이콘 위에 오도록 */
+.sol-sticky-inner,
+.ai-sticky-inner {
+  position: relative;
+  z-index: 1;
+}
+/* sol-sticky-wrap / ai-sticky-wrap position:relative 유지 */
+.sol-sticky-wrap,
+.ai-sticky-wrap {
+  position: relative;
+}
+@media(max-width:768px){
+  .sticky-wm-icon{
+    width: clamp(130px, 40vw, 180px);
+    height: clamp(130px, 40vw, 180px);
+  }
+  .sol-wm-wrap,
+  .ai-wm-wrap {
+    right: -16px;
+    bottom: -16px;
+  }
 }

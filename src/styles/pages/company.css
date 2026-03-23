@@ -233,12 +233,17 @@
 /* 모바일 버튼 (PC에서 숨김) */
 .pg-company .fb-mobile-btn{
   display: none; position: absolute; top: 50%; transform: translateY(-50%);
-  background: rgba(255,255,255,.15); border: none; border-radius: 50%;
-  width: 36px; height: 36px; font-size: 20px; color: #fff;
+  background: rgba(4,9,26,.85); border: 1px solid rgba(96,165,250,.4);
+  border-radius: 50%;
+  width: 44px; height: 44px; font-size: 22px; color: #fff;
   align-items: center; justify-content: center; cursor: pointer; z-index: 6;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 2px 12px rgba(0,0,0,.5);
+  transition: background .2s, border-color .2s;
 }
-.pg-company .fb-mobile-btn.prev{ left: 6px; }
-.pg-company .fb-mobile-btn.next{ right: 6px; }
+.pg-company .fb-mobile-btn:hover{ background: rgba(26,86,219,.7); border-color: var(--accent); }
+.pg-company .fb-mobile-btn.prev{ left: 8px; }
+.pg-company .fb-mobile-btn.next{ right: 8px; }
 /* 하단 컨트롤 바 */
 .pg-company .fb-controls{
   display: flex; align-items: center; justify-content: center;
@@ -382,23 +387,25 @@
 /* 닫기 — 라이트박스 .lightbox-close 와 동일 */
 .pg-company .fb-overlay-close{
   position: absolute; top: 24px; right: 28px;
-  width: 44px; height: 44px; border-radius: 50%;
-  background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.18);
+  width: 48px; height: 48px; border-radius: 50%;
+  background: rgba(4,9,26,.9); border: 1px solid rgba(255,255,255,.35);
   color: #fff; font-size: 20px; cursor: pointer;
   display: flex; align-items: center; justify-content: center;
-  transition: background .2s; line-height: 1; z-index: 10000;
+  transition: background .2s, border-color .2s; line-height: 1; z-index: 10000;
+  box-shadow: 0 2px 12px rgba(0,0,0,.6);
 }
-.pg-company .fb-overlay-close:hover{ background: rgba(255,255,255,.22); }
+.pg-company .fb-overlay-close:hover{ background: rgba(26,86,219,.7); border-color: var(--accent); }
 /* 좌우 화살표 — 라이트박스 .lightbox-nav 와 동일 */
 .pg-company .fb-ov-prev, .pg-company .fb-ov-next{
   position: absolute; top: 50%; transform: translateY(-50%);
-  width: 50px; height: 50px; border-radius: 50%;
-  background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.18);
+  width: 54px; height: 54px; border-radius: 50%;
+  background: rgba(4,9,26,.9); border: 1px solid rgba(255,255,255,.35);
   color: #fff; font-size: 28px; cursor: pointer;
   display: flex; align-items: center; justify-content: center;
-  transition: background .2s; line-height: 1; z-index: 10000;
+  transition: background .2s, border-color .2s; line-height: 1; z-index: 10000;
+  box-shadow: 0 2px 12px rgba(0,0,0,.6);
 }
-.pg-company .fb-ov-prev:hover, .pg-company .fb-ov-next:hover{ background: rgba(255,255,255,.22); }
+.pg-company .fb-ov-prev:hover, .pg-company .fb-ov-next:hover{ background: rgba(26,86,219,.7); border-color: var(--accent); }
 /* 카운터 — 라이트박스 .lightbox-counter 와 동일 */
 .pg-company .fb-overlay-counter{
   position: absolute; bottom: 18px; left: 50%; transform: translateX(-50%);
@@ -583,17 +590,20 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(255,255,255,.1);
-  border: 1px solid rgba(255,255,255,.2);
+  background: rgba(4,9,26,.9);
+  border: 1px solid rgba(255,255,255,.35);
   color: #fff;
-  width: 48px; height: 48px;
+  width: 54px; height: 54px;
   border-radius: 50%;
-  font-size: 22px;
+  font-size: 26px;
   cursor: pointer;
   display: flex; align-items: center; justify-content: center;
-  transition: background .2s;
+  transition: background .2s, border-color .2s;
   z-index: 9010;
+  box-shadow: 0 2px 12px rgba(0,0,0,.6);
 }
+.pg-company .fb-ov-prev:hover,
+.pg-company .fb-ov-next:hover{ background: rgba(26,86,219,.7); border-color: var(--accent); }
 .pg-company .fb-ov-prev{ left: 12px; }
 .pg-company .fb-ov-next{ right: 12px; }
 .pg-company .fb-ov-prev:hover,
@@ -799,9 +809,18 @@
     gap: 0;
   }
   .pg-company .hww-arrow {
-    padding-top: 0; padding: 12px 0;
+    /* 카드와 같은 너비로 꽉 채우고 중앙 정렬 */
+    width: 100%;
+    padding: 8px 0;
+    justify-content: center;
+    align-items: center;
   }
-  .pg-company .hww-arrow svg { transform: rotate(90deg); }
+  .pg-company .hww-arrow svg {
+    transform: rotate(90deg);
+    width: 40px;
+    height: 40px;
+    color: rgba(96,165,250,.45);
+  }
 }
 @media (max-width: 768px) {
   .pg-company .sec-vision { padding: 64px 0; }
@@ -1425,7 +1444,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  align-self: stretch;   /* 카드 높이에 맞춰 늘어남 */
+  align-self: stretch;   /* 카드 높이에 맞춰 늘어남 (데스크탑) */
   flex-shrink: 0;
   width: 48px;
 }
@@ -1916,4 +1935,57 @@
   .pg-company .vision-pillar-word { font-size: 26px; }
   .pg-company .vision-copy-text { font-size: clamp(24px, 8vw, 32px); }
   .pg-company .cert-row-name { font-size: 14px; }
+}
+
+/* ══════════════════════════════════════════
+   연혁 섹션 (sec-timeline) — clients.css tl-* 재사용
+══════════════════════════════════════════ */
+.pg-company .sec-timeline{padding:96px 0;background:var(--bg2);position:relative;overflow:hidden;border-top:1px solid rgba(96,165,250,.07)}
+.pg-company .sec-timeline::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:500px;background:radial-gradient(ellipse,rgba(26,86,219,.05) 0%,transparent 65%);pointer-events:none}
+.pg-company .timeline-body{margin-top:56px;display:flex;flex-direction:column;gap:0;position:relative}
+.pg-company .timeline-body::before{content:'';position:absolute;left:148px;top:12px;bottom:12px;width:1px;background:linear-gradient(180deg,rgba(96,165,250,.4) 0%,rgba(96,165,250,.08) 100%)}
+.pg-company .tl-row{display:grid;grid-template-columns:148px 1fr;gap:0;margin-bottom:36px;position:relative}
+.pg-company .tl-row:last-child{margin-bottom:0}
+.pg-company .tl-yr-col{padding-right:36px;padding-top:18px;text-align:right;position:relative}
+.pg-company .tl-dot{position:absolute;right:-7px;top:22px;width:12px;height:12px;border-radius:50%;background:var(--bg2);border:2px solid rgba(96,165,250,.25);z-index:2;transition:border-color .3s,box-shadow .3s}
+.pg-company .tl-row.hl .tl-dot{background:var(--accent);border-color:var(--accent);box-shadow:0 0 0 4px rgba(96,165,250,.15),0 0 14px rgba(96,165,250,.3);animation:dotPulse 2.4s ease-in-out infinite}
+.pg-company .tl-row.hl2 .tl-dot{width:16px;height:16px;right:-9px;top:19px;background:linear-gradient(135deg,var(--accent),#93C5FD);border:none;box-shadow:0 0 0 5px rgba(96,165,250,.15),0 0 22px rgba(96,165,250,.45);animation:dotPulse 2s ease-in-out infinite}
+.pg-company .tl-row.current .tl-dot{width:16px;height:16px;right:-9px;top:19px;background:var(--accent);border:none;box-shadow:0 0 0 6px rgba(96,165,250,.2),0 0 24px rgba(96,165,250,.5);animation:dotPulse 1.4s ease-in-out infinite}
+.pg-company .tl-year{font-family:var(--display);font-size:30px;font-weight:700;color:rgba(255,255,255,.2);line-height:1;letter-spacing:.04em;transition:color .3s}
+.pg-company .tl-row.hl .tl-year{color:rgba(96,165,250,.7);font-size:32px}
+.pg-company .tl-row.hl2 .tl-year{color:var(--accent);font-size:36px;text-shadow:0 0 24px rgba(96,165,250,.3)}
+.pg-company .tl-row.current .tl-year{color:var(--accent);font-size:36px;text-shadow:0 0 32px rgba(96,165,250,.5)}
+.pg-company .tl-card{display:flex;align-items:flex-start;gap:16px;padding:16px 20px;background:rgba(255,255,255,.025);border-radius:10px;border:1px solid transparent;transition:background .2s,border-color .2s}
+.pg-company .tl-card:hover{background:rgba(255,255,255,.05)}
+.pg-company .tl-row.hl .tl-card{background:rgba(26,86,219,.05);border-color:rgba(96,165,250,.06)}
+.pg-company .tl-row.hl2 .tl-card{background:rgba(26,86,219,.07);border-color:rgba(96,165,250,.12)}
+.pg-company .tl-row.current .tl-card{background:rgba(26,86,219,.07);border-color:rgba(96,165,250,.12)}
+.pg-company .tl-content{padding-left:40px;padding-bottom:36px;border-left:1px solid rgba(96,165,250,.08)}
+.pg-company .tl-row.hl .tl-content,.pg-company .tl-row.hl2 .tl-content,.pg-company .tl-row.current .tl-content{border-left-color:rgba(96,165,250,.2)}
+.pg-company .tl-row:last-child .tl-content{border-left-color:transparent;padding-bottom:0}
+.pg-company .tl-cards{display:flex;flex-direction:column;gap:8px;padding-top:8px}
+.pg-company .tl-txt{font-size:16px;font-weight:400;color:var(--muted);line-height:1.65;letter-spacing:-.01em;flex:1}
+.pg-company .tl-txt strong{color:var(--text);font-weight:600}
+.pg-company .tl-tag{flex-shrink:0;align-self:flex-start;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:3px 11px;border-radius:100px;white-space:nowrap;margin-top:2px}
+.pg-company .tl-tag-default{background:rgba(96,165,250,.12);color:var(--accent)}
+.pg-company .tl-tag-award{background:rgba(234,179,8,.12);color:#FBBF24}
+.pg-company .tl-tag-partner{background:rgba(139,92,246,.12);color:#B29FFF}
+.pg-company .tl-tag-rd{background:rgba(52,211,153,.12);color:#34D399}
+.pg-company .tl-tag-milestone{background:linear-gradient(135deg,rgba(26,86,219,.2),rgba(96,165,250,.15));color:var(--accent2);border:1px solid rgba(96,165,250,.25)}
+.pg-company .tl-tag-current{background:rgba(96,165,250,.15);color:var(--accent);border:1px solid rgba(96,165,250,.3);animation:tagBlink 2s ease-in-out infinite}
+.pg-company .tl-in-progress{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.08em;color:var(--accent);text-transform:uppercase;margin-bottom:10px}
+.pg-company .tl-in-progress-dot{width:7px;height:7px;border-radius:50%;background:var(--accent);animation:dotPulse 1.4s ease-in-out infinite}
+@media(max-width:768px){
+  .pg-company .sec-timeline{padding:64px 0}
+  .pg-company .timeline-body::before{left:64px}
+  .pg-company .tl-row{grid-template-columns:64px 1fr}
+  .pg-company .tl-yr-col{padding-right:20px;padding-top:14px}
+  .pg-company .tl-dot{right:-6px;top:18px;width:10px;height:10px}
+  .pg-company .tl-row.hl2 .tl-dot,.pg-company .tl-row.current .tl-dot{width:12px;height:12px;right:-7px}
+  .pg-company .tl-year{font-size:20px}
+  .pg-company .tl-row.hl .tl-year{font-size:22px}
+  .pg-company .tl-row.hl2 .tl-year,.pg-company .tl-row.current .tl-year{font-size:24px}
+  .pg-company .tl-content{padding-left:20px}
+  .pg-company .tl-txt{font-size:14px}
+  .pg-company .tl-tag{display:none}
 }

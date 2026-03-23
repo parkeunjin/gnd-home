@@ -184,11 +184,56 @@ export default function HomePage() {
                 솔루션 전체 보기
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </Link>
+
+            <div className="sol-wm-wrap" aria-hidden="true">
+              <svg className="sticky-wm-icon" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  {/* 큰 기어 (중앙) */}
+                  <g transform="translate(60,100)">
+                    <circle cx="0" cy="0" r="22" strokeWidth="4" stroke="currentColor"/>
+                    <circle cx="0" cy="0" r="10" strokeWidth="3" stroke="currentColor"/>
+                    {/* 기어 이빨 8개 */}
+                    {[0,45,90,135,180,225,270,315].map((deg,i) => {
+                      const r = Math.PI * deg / 180
+                      const x1 = Math.cos(r)*22, y1 = Math.sin(r)*22
+                      const x2 = Math.cos(r)*32, y2 = Math.sin(r)*32
+                      return <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} strokeWidth="7" strokeLinecap="round" stroke="currentColor"/>
+                    })}
+                  </g>
+                  {/* 작은 기어 (우상단) */}
+                  <g transform="translate(130,55)">
+                    <circle cx="0" cy="0" r="15" strokeWidth="3" stroke="currentColor"/>
+                    <circle cx="0" cy="0" r="6" strokeWidth="2.5" stroke="currentColor"/>
+                    {[0,60,120,180,240,300].map((deg,i) => {
+                      const r = Math.PI * deg / 180
+                      const x1 = Math.cos(r)*15, y1 = Math.sin(r)*15
+                      const x2 = Math.cos(r)*22, y2 = Math.sin(r)*22
+                      return <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} strokeWidth="5" strokeLinecap="round" stroke="currentColor"/>
+                    })}
+                  </g>
+                  {/* 연결축 */}
+                  <line x1="83" y1="88" x2="115" y2="65" strokeWidth="2.5" stroke="currentColor" strokeDasharray="5 3"/>
+                  {/* 데이터 플로우 박스들 */}
+                  <rect x="108" y="118" width="36" height="22" rx="4" strokeWidth="2.5" stroke="currentColor"/>
+                  <rect x="152" y="118" width="36" height="22" rx="4" strokeWidth="2.5" stroke="currentColor"/>
+                  <line x1="144" y1="129" x2="152" y2="129" strokeWidth="2.5" stroke="currentColor"/>
+                  {/* 화살표 */}
+                  <polyline points="149,125 153,129 149,133" strokeWidth="2" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"/>
+                  {/* 하단 그래프 바 */}
+                  <rect x="108" y="154" width="10" height="30" rx="2" strokeWidth="2.5" stroke="currentColor"/>
+                  <rect x="124" y="144" width="10" height="40" rx="2" strokeWidth="2.5" stroke="currentColor"/>
+                  <rect x="140" y="160" width="10" height="24" rx="2" strokeWidth="2.5" stroke="currentColor"/>
+                  <rect x="156" y="148" width="10" height="36" rx="2" strokeWidth="2.5" stroke="currentColor"/>
+                  <rect x="172" y="138" width="10" height="46" rx="2" strokeWidth="2.5" stroke="currentColor"/>
+                  {/* 기준선 */}
+                  <line x1="105" y1="186" x2="185" y2="186" strokeWidth="2" stroke="currentColor"/>
+                </svg>
+            </div>
             </div>
           </div>
 
           {/* 우측: 스크롤되는 아이템 목록 */}
           <div className="sol-sticky-right">
+
             {[
               { num:'01', name:'스마트공장 구축',     en:'Smart Factory',         desc:'ERP · MES · PLM · SCM · QMS — i-MEPS 하나의 플랫폼으로 통합, 실시간 데이터 기반 의사결정 지원' },
               { num:'02', name:'맞춤형 솔루션 개발',  en:'Custom Development',    desc:'공정관리 · 검사 · SPC · 4M 변경관리 — 현장 분석부터 개발·납품·유지보수까지 일괄 책임' },
@@ -220,6 +265,7 @@ export default function HomePage() {
 
           {/* 좌측: 스크롤되는 AI 아이템 목록 */}
           <div className="ai-sticky-left">
+
 
             <Link to="/ai/givas" className="ai-si-item reveal" style={{transitionDelay:'.04s'}}>
               <span className="ai-si-num">01</span>
@@ -282,6 +328,55 @@ export default function HomePage() {
                 AI 플랫폼 전체 보기
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </Link>
+
+            <div className="ai-wm-wrap" aria-hidden="true">
+              <svg className="sticky-wm-icon" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  {/* 뉴럴 네트워크 — 입력층 */}
+                  <circle cx="30" cy="60"  r="10" strokeWidth="3" stroke="currentColor"/>
+                  <circle cx="30" cy="100" r="10" strokeWidth="3" stroke="currentColor"/>
+                  <circle cx="30" cy="140" r="10" strokeWidth="3" stroke="currentColor"/>
+                  {/* 은닉층 1 */}
+                  <circle cx="95" cy="45"  r="10" strokeWidth="3" stroke="currentColor"/>
+                  <circle cx="95" cy="80"  r="10" strokeWidth="3" stroke="currentColor"/>
+                  <circle cx="95" cy="115" r="10" strokeWidth="3" stroke="currentColor"/>
+                  <circle cx="95" cy="150" r="10" strokeWidth="3" stroke="currentColor"/>
+                  {/* 은닉층 2 */}
+                  <circle cx="155" cy="65"  r="10" strokeWidth="3" stroke="currentColor"/>
+                  <circle cx="155" cy="100" r="10" strokeWidth="3" stroke="currentColor"/>
+                  <circle cx="155" cy="135" r="10" strokeWidth="3" stroke="currentColor"/>
+                  {/* 출력층 */}
+                  <circle cx="185" cy="100" r="12" strokeWidth="3.5" stroke="currentColor"/>
+                  {/* 입력→은닉1 연결선 */}
+                  {[[60,45],[60,80],[60,115],[60,150]].map(([tx,ty],i)=>(
+                    <line key={`in${i}a`} x1="40" y1="60"  x2={tx-10} y2={ty} strokeWidth="1.5" stroke="currentColor" opacity=".5"/>
+                  ))}
+                  {[[60,45],[60,80],[60,115],[60,150]].map(([tx,ty],i)=>(
+                    <line key={`in${i}b`} x1="40" y1="100" x2={tx-10} y2={ty} strokeWidth="1.5" stroke="currentColor" opacity=".5"/>
+                  ))}
+                  {[[60,45],[60,80],[60,115],[60,150]].map(([tx,ty],i)=>(
+                    <line key={`in${i}c`} x1="40" y1="140" x2={tx-10} y2={ty} strokeWidth="1.5" stroke="currentColor" opacity=".5"/>
+                  ))}
+                  {/* 은닉1→은닉2 연결선 */}
+                  {[[65,155],[65,135]].map(([tx,ty],i)=>(
+                    <line key={`h1${i}a`} x1="105" y1="45"  x2={tx} y2={ty} strokeWidth="1.5" stroke="currentColor" opacity=".5"/>
+                  ))}
+                  {[[130,65],[130,100],[130,135]].map(([tx,ty],i)=>(
+                    <line key={`h1${i}b`} x1="105" y1="80"  x2={tx} y2={ty} strokeWidth="1.5" stroke="currentColor" opacity=".5"/>
+                  ))}
+                  {[[130,65],[130,100],[130,135]].map(([tx,ty],i)=>(
+                    <line key={`h1${i}c`} x1="105" y1="115" x2={tx} y2={ty} strokeWidth="1.5" stroke="currentColor" opacity=".5"/>
+                  ))}
+                  {[[130,65],[130,100],[130,135]].map(([tx,ty],i)=>(
+                    <line key={`h1${i}d`} x1="105" y1="150" x2={tx} y2={ty} strokeWidth="1.5" stroke="currentColor" opacity=".5"/>
+                  ))}
+                  {/* 은닉2→출력 연결선 */}
+                  <line x1="165" y1="65"  x2="173" y2="100" strokeWidth="2" stroke="currentColor" opacity=".7"/>
+                  <line x1="165" y1="100" x2="173" y2="100" strokeWidth="2" stroke="currentColor" opacity=".7"/>
+                  <line x1="165" y1="135" x2="173" y2="100" strokeWidth="2" stroke="currentColor" opacity=".7"/>
+                  {/* 출력 노드 내부 점 */}
+                  <circle cx="185" cy="100" r="4" strokeWidth="0" fill="currentColor" opacity=".4"/>
+                </svg>
+            </div>
             </div>
           </div>
 

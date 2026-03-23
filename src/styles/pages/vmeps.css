@@ -786,6 +786,7 @@
   .pg-vmeps .pos-arrow{width:100%;height:56px;background:rgba(255,255,255,.02)}
   .pg-vmeps .pos-arrow::before, .pg-vmeps .pos-arrow::after{display:none}
   .pg-vmeps .pos-arrow-track{flex-direction:row;gap:16px;align-items:center;justify-content:center}
+  .pg-vmeps .pos-vs-arrow svg{transform:rotate(90deg)}
   .pg-vmeps .pos-vs-text{font-size:28px}
   .pg-vmeps .pos-vs-sub{font-size:13px}
   .pg-vmeps .pos-card-body{padding:16px 22px 28px}

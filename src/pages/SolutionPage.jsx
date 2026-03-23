@@ -21,15 +21,123 @@ export default function SolutionPage() {
     <>
 <div className="pg-solution">
 <div className="page-hero">
+  <div className="sol-hero-bg-overlay"></div>
   <div className="grid-bg"></div>
-  <div className="page-hero-inner">
-    <h1 className="page-title">
-      자체 개발 제조통합솔루션<br/><em>i-MEPS</em>
-    </h1>
-    <p className="page-desc" style={{opacity:"0",animation:"fadeUp .8s .45s ease forwards"}}>
-      Integrated Manufacturing Execution &amp; Planning System<br/>
-      15년 현장 최적화 · 영업·생산·구매·품질·설비 데이터를 하나의 플랫폼으로
-    </p>
+
+  <div className="page-hero-inner sol-hero-inner">
+
+    {/* 좌측: 타이틀 + 설명 + 버튼 */}
+    <div className="sol-hero-left">
+      <h1 className="sol-hero-title">
+        <span className="sol-hero-sub">제조통합솔루션 — 자체 개발</span>
+        <span className="sol-hero-brand">i-MEPS</span>
+        생산·품질·설비,<br/>하나로 통합합니다
+      </h1>
+      <p className="sol-hero-desc">
+        Integrated Manufacturing Execution &amp; Planning System<br/>
+        15년 현장 최적화 · 생산·품질·설비·공정 데이터를 하나의 플랫폼으로
+      </p>
+      <div className="sol-hero-btns">
+        <Link to="/contact" className="sol-btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          도입 상담 신청
+        </Link>
+        <a href="#modules" className="sol-btn-ghost">
+          핵심 기능 보기
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    {/* 우측: i-MEPS 대시보드 UI */}
+    <div className="sol-hero-right">
+      <div className="sol-dashboard">
+
+        {/* 상단 타이틀바 */}
+        <div className="sol-db-topbar">
+          <div className="sol-db-dots">
+            <span className="sol-db-dot dot-r"></span>
+            <span className="sol-db-dot dot-y"></span>
+            <span className="sol-db-dot dot-g"></span>
+          </div>
+          <span className="sol-db-title">i-MEPS DASHBOARD</span>
+          <span className="sol-db-live"><span className="sol-db-pulse"></span>LIVE</span>
+        </div>
+
+        {/* KPI 요약 바 */}
+        <div className="sol-db-kpi-row">
+          <div className="sol-db-kpi">
+            <div className="sol-db-kpi-val purple">98.2%</div>
+            <div className="sol-db-kpi-label">생산 달성률</div>
+          </div>
+          <div className="sol-db-kpi">
+            <div className="sol-db-kpi-val green">0.8%</div>
+            <div className="sol-db-kpi-label">불량률</div>
+          </div>
+          <div className="sol-db-kpi">
+            <div className="sol-db-kpi-val">847</div>
+            <div className="sol-db-kpi-label">금일 생산수량</div>
+          </div>
+          <div className="sol-db-kpi">
+            <div className="sol-db-kpi-val orange">2</div>
+            <div className="sol-db-kpi-label">설비 이상 경보</div>
+          </div>
+        </div>
+
+        {/* 모듈 그리드 */}
+        <div className="sol-db-modules">
+          <div className="sol-db-mod sol-db-mod-main">
+            <div className="sol-db-mod-head">
+              <span className="sol-db-mod-label">생산관리</span>
+              <span className="sol-db-mod-status status-ok">정상</span>
+            </div>
+            <div className="sol-db-mod-chart">
+              {[65,80,55,90,72,88,95].map((h,i) => (
+                <div key={i} className="sol-db-bar" style={{height:`${h}%`, opacity: i===6?1:0.55+(i*0.06)}}></div>
+              ))}
+            </div>
+            <div className="sol-db-mod-foot">작업지시 · 실적 · LOT 추적</div>
+          </div>
+
+          <div className="sol-db-mod">
+            <div className="sol-db-mod-head">
+              <span className="sol-db-mod-label">품질관리</span>
+              <span className="sol-db-mod-status status-ok">정상</span>
+            </div>
+            <div className="sol-db-mod-items">
+              <div className="sol-db-row"><span>검사 합격</span><span className="green">412건</span></div>
+              <div className="sol-db-row"><span>불량 검출</span><span className="red">4건</span></div>
+              <div className="sol-db-row"><span>SPC 경고</span><span className="orange">1건</span></div>
+            </div>
+          </div>
+
+          <div className="sol-db-mod">
+            <div className="sol-db-mod-head">
+              <span className="sol-db-mod-label">설비관리</span>
+              <span className="sol-db-mod-status status-warn">주의</span>
+            </div>
+            <div className="sol-db-mod-items">
+              <div className="sol-db-row"><span>가동 설비</span><span className="green">18대</span></div>
+              <div className="sol-db-row"><span>점검 필요</span><span className="orange">2대</span></div>
+              <div className="sol-db-row"><span>가동률</span><span className="purple">91.2%</span></div>
+            </div>
+          </div>
+        </div>
+
+        {/* 하단 공정 흐름 */}
+        <div className="sol-db-flow">
+          {['수주','생산계획','작업지시','실적수집','품질검사','출하'].map((step, i) => (
+            <div key={i} className="sol-db-flow-step">
+              <div className={`sol-db-flow-node ${i<4?'node-done':i===4?'node-active':'node-pend'}`}></div>
+              <span className="sol-db-flow-label">{step}</span>
+              {i < 5 && <div className="sol-db-flow-line"></div>}
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </div>
+
   </div>
 </div>
 
@@ -132,8 +240,8 @@ export default function SolutionPage() {
 <section id="modules">
   <div className="container">
     <div className="sec-head-center reveal">
-      <h2 className="sec-title">기획부터 운영까지 — 원스톱 제조통합</h2>
-      <p className="sec-desc">영업·생산·구매·품질·설비를 하나의 플랫폼에서 통합 관리합니다</p>
+      <h2 className="sec-title">생산·품질·설비 — 원스톱 제조통합</h2>
+      <p className="sec-desc">생산관리·품질관리·공정관리·설비관리를 하나의 플랫폼에서 통합 관리합니다</p>
     </div>
     <div className="modules-grid">
       <div className="mod-card reveal" style={{transitionDelay:".05s"}}>
@@ -208,8 +316,8 @@ export default function SolutionPage() {
             <div className="afd-src-sub">생산실적 · 검사 입력</div>
           </div>
           <div className="afd-src-card">
-            <div className="afd-src-name">ERP · 영업</div>
-            <div className="afd-src-sub">수주 · 자재 · 재고</div>
+            <div className="afd-src-name">수주 · 자재관리</div>
+            <div className="afd-src-sub">구매 · 재고 · SCM</div>
           </div>
           <div className="afd-src-card">
             <div className="afd-src-name">IoT · 협동로봇</div>
@@ -243,7 +351,7 @@ export default function SolutionPage() {
           <div className="afd-engine-pulse"></div>
           <div className="afd-engine-inner">
             <div className="afd-engine-title">i-MEPS 통합 플랫폼</div>
-            <div className="afd-engine-sub">ERP · MES · PLM · SCM · QMS 일체형 &nbsp;|&nbsp; 15년 현장 최적화</div>
+            <div className="afd-engine-sub">MES · QMS · SCM · PLM 일체형 &nbsp;|&nbsp; 15년 현장 최적화</div>
             <div className="afd-chip-row">
               <span className="afd-chip">작업지시 실시간</span>
               <span className="afd-chip">LOT 이력 추적</span>
@@ -313,8 +421,8 @@ export default function SolutionPage() {
 
     <div className="kpi-grid reveal" style={{transitionDelay:".08s"}}>
       <div className="kpi-card"><div className="kpi-val">100+</div><div className="kpi-label">구축 완료 기업</div><div className="kpi-sub">2011년 창업 이래<br/>스마트팩토리 구축 실적</div></div>
-      <div className="kpi-card"><div className="kpi-val">15년+</div><div className="kpi-label">현장 구축 경험</div><div className="kpi-sub">ERP·MES·PLM<br/>삼성·현대·두산 협업</div></div>
-      <div className="kpi-card"><div className="kpi-val">5개</div><div className="kpi-label">핵심 관리 모듈</div><div className="kpi-sub">인사 · 영업구매 · 생산<br/>설비 · 품질 완전 통합</div></div>
+      <div className="kpi-card"><div className="kpi-val">15년+</div><div className="kpi-label">현장 구축 경험</div><div className="kpi-sub">MES·QMS·PLM<br/>삼성·현대·두산 협업</div></div>
+      <div className="kpi-card"><div className="kpi-val">5개</div><div className="kpi-label">핵심 관리 모듈</div><div className="kpi-sub">생산 · 품질 · 공정<br/>설비 · 자재 완전 통합</div></div>
       <div className="kpi-card"><div className="kpi-val">AI</div><div className="kpi-label">GIVAS 연동 가능</div><div className="kpi-sub">i-MEPS 데이터 →<br/>AI 예측 분석 즉시 전환</div></div>
     </div>
 
@@ -410,7 +518,7 @@ export default function SolutionPage() {
     <div className="diff-grid">
       <div className="diff-card reveal" style={{transitionDelay:".05s"}}>
         <div className="diff-title">실질적 맞춤 시스템</div>
-        <div className="diff-desc">요구사항 최대 반영, 현장에서 실질적으로 도움이 되는 기능만 개발합니다. 범용 ERP의 불필요한 기능 없이 우리 현장에 딱 맞는 솔루션을 제공합니다.</div>
+        <div className="diff-desc">요구사항 최대 반영, 현장에서 실질적으로 도움이 되는 기능만 개발합니다. 생산·품질 관리에 특화된 솔루션으로 우리 현장에 딱 맞게 제공합니다.</div>
         <div className="diff-chips"><span className="diff-chip">요구사항 반영</span><span className="diff-chip">커스터마이징</span><span className="diff-chip">현장 최적화</span></div>
       </div>
       <div className="diff-card reveal" style={{transitionDelay:".1s"}}>

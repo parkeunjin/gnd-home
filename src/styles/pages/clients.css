@@ -203,7 +203,8 @@
   .pg-clients .tl-yr-col{padding-right:16px}
   .pg-clients .tl-content{padding-left:20px}
   .pg-clients .tl-txt{font-size:14px}
-  .pg-clients .tl-tag{font-size:10px;padding:2px 8px}
+  .pg-clients .tl-tag{display:none}
+  .pg-clients .tl-in-progress{font-size:11px}
   .pg-clients .pc-br{display:none}
   .pg-clients .page-hero-inner{padding:40px 20px 40px}
   .pg-clients .section{padding:56px 0}
@@ -230,4 +231,54 @@
   .pg-clients .timeline-body::before{left:56px}
   .pg-clients .tl-row{grid-template-columns:56px 1fr}
   .pg-clients .tl-year{font-size:18px}
+}
+/* ── 통합 로고 그리드 (대기업/중견기업 구분 없이 전체 나열) ── */
+.pg-clients .all-clients-grid{
+  display:grid;
+  grid-template-columns:repeat(7,1fr);
+  gap:0;
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:14px;
+  overflow:hidden;
+}
+.pg-clients .ac-item{
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  gap:12px;
+  padding:28px 16px;
+  border-right:1px solid rgba(255,255,255,.06);
+  border-bottom:1px solid rgba(255,255,255,.06);
+  transition:background .2s;
+}
+.pg-clients .ac-item:hover{background:rgba(96,165,250,.04)}
+.pg-clients .ac-item:nth-child(7n){border-right:none}
+.pg-clients .ac-item .limg{
+  height:36px;width:auto;max-width:100px;
+  object-fit:contain;
+  filter:none;
+  opacity:.85;
+  transition:opacity .25s;
+}
+.pg-clients .ac-item:hover .limg{opacity:1}
+.pg-clients .ac-name{
+  font-size:12px;font-weight:500;
+  color:var(--muted);letter-spacing:-.01em;
+  text-align:center;line-height:1.3;
+}
+@media(max-width:1024px){
+  .pg-clients .all-clients-grid{grid-template-columns:repeat(5,1fr)}
+  .pg-clients .ac-item:nth-child(7n){border-right:1px solid rgba(255,255,255,.06)}
+  .pg-clients .ac-item:nth-child(5n){border-right:none}
+}
+@media(max-width:768px){
+  .pg-clients .all-clients-grid{grid-template-columns:repeat(3,1fr)}
+  .pg-clients .ac-item:nth-child(5n){border-right:1px solid rgba(255,255,255,.06)}
+  .pg-clients .ac-item:nth-child(3n){border-right:none}
+  .pg-clients .ac-item{padding:20px 12px}
+  .pg-clients .ac-item .limg{height:28px;max-width:80px}
+}
+@media(max-width:480px){
+  .pg-clients .all-clients-grid{grid-template-columns:repeat(2,1fr)}
+  .pg-clients .ac-item:nth-child(3n){border-right:1px solid rgba(255,255,255,.06)}
+  .pg-clients .ac-item:nth-child(2n){border-right:none}
 }

@@ -147,7 +147,7 @@ export default function InfoPage() {
   <div className="container">
     <div className="sec-head-center reveal">
       <h2 className="sec-title" id="support-h">정부 지원사업으로 비용 부담을 줄이세요</h2>
-      <p className="sec-desc">KOSF 스마트팩토리 지원사업을 통해 중소기업도 부담 없이 도입할 수 있습니다</p>
+      <p className="sec-desc">KOSMO 스마트팩토리 지원사업을 통해 중소기업도 부담 없이 도입할 수 있습니다</p>
     </div>
     <div className="support-wrap reveal">
 
@@ -181,7 +181,7 @@ export default function InfoPage() {
           <text x="58" y="95" text-anchor="middle" font-size="14" fill="rgba(96,165,250,.7)" font-weight="700">₩</text>
           <line x1="72" y1="96" x2="88" y2="110" stroke="rgba(96,165,250,.2)" strokeWidth="1" strokeDasharray="2 2"/>
           <circle cx="222" cy="90" r="16" fill="rgba(96,165,250,.08)" stroke="rgba(96,165,250,.3)" strokeWidth="1.2"/>
-          <text x="222" y="95" text-anchor="middle" font-size="11" fill="rgba(96,165,250,.7)" font-weight="700">KOSF</text>
+          <text x="222" y="95" text-anchor="middle" font-size="11" fill="rgba(96,165,250,.7)" font-weight="700">KOSMO</text>
           <line x1="208" y1="96" x2="192" y2="110" stroke="rgba(96,165,250,.2)" strokeWidth="1" strokeDasharray="2 2"/>
           <rect x="98" y="48" width="40" height="22" rx="11" fill="rgba(26,86,219,.25)" stroke="rgba(96,165,250,.4)" strokeWidth="1"/>
           <text x="118" y="63" text-anchor="middle" font-size="10" fill="rgba(96,165,250,.95)" font-weight="700">최대 50%</text>
@@ -204,7 +204,7 @@ export default function InfoPage() {
         <div className="support-item">
           <div className="support-body">
             <div className="support-heading">단계적 도입으로 초기 비용 최소화</div>
-            <div className="support-text">처음부터 중소기업 맞춤형으로 설계된 솔루션. KOSF 보조금 활용 가능, 단계적 도입으로 초기 투자 부담을 줄입니다.</div>
+            <div className="support-text">처음부터 중소기업 맞춤형으로 설계된 솔루션. KOSMO 보조금 활용 가능, 단계적 도입으로 초기 투자 부담을 줄입니다.</div>
           </div>
         </div>
       </div>

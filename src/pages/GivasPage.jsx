@@ -68,52 +68,99 @@ export default function GivasPage() {
 
 
         <div className="givas-hero-visual" style={{opacity:"0",animation:"fadeUp .8s .45s ease forwards"}}>
-          <div className="givas-vis-card">
-            <div className="givas-vis-glow"></div>
-            <div className="vis-label">GIVAS — 실시간 현장 현황</div>
-            <div className="vis-stat-row">
-              <div className="vis-stat">
-                <div className="vis-stat-val" style={{color:"var(--accent)"}}>99%</div>
-                <div className="vis-stat-label">SPC 불량 판정 정확도</div>
+          <div className="hero-monitor givas-monitor">
+
+            <div className="monitor-topbar">
+              <div className="monitor-dots">
+                <div className="m-dot m-dot-r"></div>
+                <div className="m-dot m-dot-y"></div>
+                <div className="m-dot m-dot-g"></div>
               </div>
-              <div className="vis-stat">
-                <div className="vis-stat-val" style={{color:"var(--accent)"}}>90%+</div>
-                <div className="vis-stat-label">예지보전 탐지 정확도</div>
-              </div>
-              <div className="vis-stat">
-                <div className="vis-stat-val" style={{color:"var(--accent)"}}>37.5%</div>
-                <div className="vis-stat-label">생산량 증가</div>
-              </div>
-              <div className="vis-stat">
-                <div className="vis-stat-val" style={{color:"var(--accent)"}}>10%</div>
-                <div className="vis-stat-label">재고 비용 절감</div>
+              <div className="monitor-title">GIVAS INTELLIGENCE HUB</div>
+              <div className="monitor-status">
+                <span className="status-pulse"></span>
+                LIVE
               </div>
             </div>
-            <div className="vis-divider"></div>
-            <div className="vis-feature-list">
-              <div className="vis-feat">
-                <div className="vis-feat-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+
+            <div className="monitor-body">
+              {/* KPI 4개 */}
+              <div className="givas-kpi-row">
+                <div className="givas-kpi">
+                  <div className="givas-kpi-val" style={{color:"var(--accent)"}}>99%</div>
+                  <div className="givas-kpi-label">SPC 정확도</div>
                 </div>
-                예지보전 · AI-SPC · 이상탐지
+                <div className="givas-kpi">
+                  <div className="givas-kpi-val" style={{color:"#34D399"}}>90%+</div>
+                  <div className="givas-kpi-label">예지보전 탐지</div>
+                </div>
+                <div className="givas-kpi">
+                  <div className="givas-kpi-val" style={{color:"var(--accent)"}}>37.5%</div>
+                  <div className="givas-kpi-label">생산량 증가</div>
+                </div>
+                <div className="givas-kpi">
+                  <div className="givas-kpi-val" style={{color:"#A78BFA"}}>10%</div>
+                  <div className="givas-kpi-label">재고비용 절감</div>
+                </div>
               </div>
-              <div className="vis-feat">
-                <div className="vis-feat-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+
+              {/* 이상탐지 그래프 + AI 분석 패널 */}
+              <div className="givas-panels">
+                <div className="givas-panel givas-panel-main">
+                  <div className="givas-panel-head">
+                    <span className="givas-panel-title">이상탐지 모니터링</span>
+                    <span className="givas-badge-ok">정상</span>
+                  </div>
+                  <div className="givas-graph">
+                    {[30,45,38,52,35,60,42,55,40,70,38,52,45,80,42,58,35,65,44,72].map((h,i)=>(
+                      <div key={i} className={`givas-bar ${h>65?'bar-warn':''}`}
+                        style={{height:`${h}%`,opacity:0.4+(i*0.03)}}></div>
+                    ))}
+                  </div>
+                  <div className="givas-graph-labels">
+                    <span>00:00</span><span>06:00</span><span>12:00</span><span>18:00</span><span>NOW</span>
+                  </div>
                 </div>
-                Gen AI 자연어 질의 분석 (LLM)
+                <div className="givas-panel givas-panel-sub">
+                  <div className="givas-panel-head">
+                    <span className="givas-panel-title">AI 분석 알림</span>
+                  </div>
+                  <div className="givas-alerts">
+                    <div className="givas-alert alert-ok">
+                      <span className="alert-dot dot-ok"></span>
+                      <div>
+                        <div className="alert-title">펌프 #3 — 정상</div>
+                        <div className="alert-sub">진동 패턴 학습 완료</div>
+                      </div>
+                    </div>
+                    <div className="givas-alert alert-warn">
+                      <span className="alert-dot dot-warn"></span>
+                      <div>
+                        <div className="alert-title">온도 편차 감지</div>
+                        <div className="alert-sub">3번 라인 ±2.1°C 초과</div>
+                      </div>
+                    </div>
+                    <div className="givas-alert alert-info">
+                      <span className="alert-dot dot-info"></span>
+                      <div>
+                        <div className="alert-title">재고 자동 발주</div>
+                        <div className="alert-sub">A자재 안전재고 도달</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div className="vis-feat">
-                <div className="vis-feat-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+
+              {/* Gen AI 질의 */}
+              <div className="givas-chat">
+                <div className="givas-chat-q">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+                  3번 라인 불량률이 왜 올랐나요?
                 </div>
-                Naver Cloud 기반 SaaS 제공
-              </div>
-              <div className="vis-feat">
-                <div className="vis-feat-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                <div className="givas-chat-a">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" strokeWidth="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                  온도 변동(±3.2°C) 및 펌프 #3 전류 이상이 주요 원인으로 분석됩니다.
                 </div>
-                재고 자동 발주 최적화
               </div>
             </div>
           </div>

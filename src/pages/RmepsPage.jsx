@@ -57,44 +57,100 @@ export default function RmepsPage() {
         </div>
 
         <div style={{opacity:"0",animation:"fadeUp .8s .45s ease forwards"}}>
-          <div className="hero-card">
-            <div className="hero-card-glow"></div>
-            <div className="card-label">R-MEPS — 실시간 로봇 제어 현황</div>
-            <div className="card-stats">
-              <div className="card-stat">
-                <div className="card-stat-val">+20%</div>
-                <div className="card-stat-label">용접 불량 검출률</div>
+          <div className="hero-monitor rmeps-monitor">
+
+            <div className="monitor-topbar">
+              <div className="monitor-dots">
+                <div className="m-dot m-dot-r"></div>
+                <div className="m-dot m-dot-y"></div>
+                <div className="m-dot m-dot-g"></div>
               </div>
-              <div className="card-stat">
-                <div className="card-stat-val">+15%</div>
-                <div className="card-stat-label">적재 공간 활용도</div>
-              </div>
-              <div className="card-stat">
-                <div className="card-stat-val">100ms</div>
-                <div className="card-stat-label">제어 반응 속도</div>
-              </div>
-              <div className="card-stat">
-                <div className="card-stat-val">10만+</div>
-                <div className="card-stat-label">시뮬레이션 학습 데이터</div>
+              <div className="monitor-title">R-MEPS ROBOT CONTROL</div>
+              <div className="monitor-status rmeps-status">
+                <span className="status-pulse rmeps-pulse"></span>
+                LIVE
               </div>
             </div>
-            <div className="card-divider"></div>
-            <div className="card-features">
-              <div className="card-feat">
-                <div className="card-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div>
-                적응형 제어 · 품질 예측 · 경로 최적화
+
+            <div className="monitor-body">
+              {/* 로봇 KPI 4개 */}
+              <div className="givas-kpi-row">
+                <div className="givas-kpi">
+                  <div className="givas-kpi-val" style={{color:"var(--orange)"}}>+20%</div>
+                  <div className="givas-kpi-label">불량 검출률</div>
+                </div>
+                <div className="givas-kpi">
+                  <div className="givas-kpi-val" style={{color:"#34D399"}}>+15%</div>
+                  <div className="givas-kpi-label">공간 활용도</div>
+                </div>
+                <div className="givas-kpi">
+                  <div className="givas-kpi-val" style={{color:"var(--orange)"}}>100ms</div>
+                  <div className="givas-kpi-label">제어 반응속도</div>
+                </div>
+                <div className="givas-kpi">
+                  <div className="givas-kpi-val" style={{color:"#A78BFA"}}>10만+</div>
+                  <div className="givas-kpi-label">학습 데이터</div>
+                </div>
               </div>
-              <div className="card-feat">
-                <div className="card-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 7h6M9 12h6M9 17h4"/></svg></div>
-                On-Device AI · 네트워크 단절 시 자율 운영
+
+              {/* 로봇 상태 + 제어 파라미터 */}
+              <div className="givas-panels">
+                <div className="givas-panel givas-panel-main">
+                  <div className="givas-panel-head">
+                    <span className="givas-panel-title">용접 품질 모니터링</span>
+                    <span className="givas-badge-ok" style={{background:"rgba(251,146,60,.15)",color:"var(--orange)"}}>최적화 중</span>
+                  </div>
+                  <div className="givas-graph">
+                    {[55,62,58,70,65,72,60,75,68,78,65,80,72,76,70,82,68,85,72,88].map((h,i)=>(
+                      <div key={i} className="givas-bar" style={{
+                        height:`${h}%`,
+                        background:`linear-gradient(180deg,var(--orange),rgba(251,146,60,.3))`,
+                        opacity:0.4+(i*0.03)
+                      }}></div>
+                    ))}
+                  </div>
+                  <div className="givas-graph-labels">
+                    <span>용접 품질 점수 추이</span><span style={{color:"var(--orange)"}}>↑ 개선중</span>
+                  </div>
+                </div>
+                <div className="givas-panel givas-panel-sub">
+                  <div className="givas-panel-head">
+                    <span className="givas-panel-title">AI 제어 현황</span>
+                  </div>
+                  <div className="givas-alerts">
+                    <div className="givas-alert alert-ok">
+                      <span className="alert-dot dot-ok"></span>
+                      <div>
+                        <div className="alert-title">ROBOT-01 — 정상</div>
+                        <div className="alert-sub">PID 자동 보정 완료</div>
+                      </div>
+                    </div>
+                    <div className="givas-alert alert-info">
+                      <span className="alert-dot" style={{background:"var(--orange)"}}></span>
+                      <div>
+                        <div className="alert-title">경로 최적화 중</div>
+                        <div className="alert-sub">ROBOT-02 사이클타임 -8%</div>
+                      </div>
+                    </div>
+                    <div className="givas-alert alert-ok">
+                      <span className="alert-dot dot-ok"></span>
+                      <div>
+                        <div className="alert-title">AGV-03 — 연동</div>
+                        <div className="alert-sub">자율 경로 주행 중</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div className="card-feat">
-                <div className="card-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
-                Fanuc · Yaskawa · 현대로보틱스 즉시 연동
-              </div>
-              <div className="card-feat">
-                <div className="card-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></div>
-                Cloud-Edge 하이브리드 아키텍처
+
+              {/* 연동 로봇 브랜드 */}
+              <div className="rmeps-brands">
+                <span className="rmeps-brand-label">즉시 연동 가능</span>
+                <div className="rmeps-brand-list">
+                  {['Fanuc','Yaskawa','현대로보틱스','KUKA','ABB'].map(b=>(
+                    <span key={b} className="rmeps-brand-tag">{b}</span>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

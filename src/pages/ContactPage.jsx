@@ -5,7 +5,7 @@ import './../styles/pages/contact.css'
 // https://formsubmit.co — 가입 없이 이메일만으로 사용 가능
 // 첫 전송 시 해당 이메일로 활성화 확인 메일 1회 발송됨
 
-const FORMSUBMIT_EMAIL = 'sbgwak@gmail.com'
+const FORMSUBMIT_EMAIL = 'eunjin.gndbiz@gmail.com'
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false)
@@ -185,7 +185,7 @@ export default function ContactPage() {
             </div>
             <div className="ci-item">
               <div className="ci-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></div>
-              <div><div className="ci-label">이메일</div><div className="ci-val"><a href="mailto:sbgwak@gmail.com">sbgwak@gmail.com</a></div></div>
+              <div><div className="ci-label">이메일</div><div className="ci-val"><a href="mailto:eunjin.gndbiz@gmail.com">eunjin.gndbiz@gmail.com</a></div></div>
             </div>
             <div className="ci-item">
               <div className="ci-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div>
