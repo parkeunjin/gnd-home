@@ -771,6 +771,7 @@
   .pg-aiplatform .cta-kpi-item + .cta-kpi-item::before{display:none}
 }
 @media(max-width:768px){
+  .pg-aiplatform .page-hero{padding:56px 0 0}
   .pg-aiplatform .gnb, .pg-aiplatform .nav-cta{display:none}
   .pg-aiplatform .container{padding:0 20px}
   .pg-aiplatform .ps-pairs-grid{grid-template-columns:1fr}
@@ -785,7 +786,7 @@
   .pg-aiplatform .cta-bar-desc{font-size:16px}
   .pg-aiplatform .cta-bar-actions{flex-direction:column;width:100%;align-items:stretch}
   .pg-aiplatform .btn-primary, .pg-aiplatform .btn-ghost{justify-content:center}
-  .pg-aiplatform .page-hero-inner{padding:60px 20px 48px}
+  .pg-aiplatform .page-hero-inner{padding:40px 20px 40px}
   .pg-aiplatform .hero-problem-chips{gap:8px;padding:0 8px}
   .pg-aiplatform .hero-chip{font-size:14px;padding:9px 16px}
   .pg-aiplatform .ps-sol-name{font-size:22px}

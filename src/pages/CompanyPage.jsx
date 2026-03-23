@@ -14,21 +14,21 @@ export default function CompanyPage() {
       "/images/company/award-2018.jpg"
     ]
 
-    // 인증서 슬라이더
-    const track = document.getElementById('cert-track')
-    if (track) {
-      track.innerHTML = ''
-      ;[...awardImages, ...awardImages].forEach((src, i) => {
+    // 인증서 갤러리 그리드
+    const gallery = document.getElementById('cert-gallery')
+    if (gallery) {
+      gallery.innerHTML = ''
+      awardImages.forEach((src, i) => {
         const d = document.createElement('div')
-        d.className = 'cert-card'
-        d.dataset.idx = String(i % awardImages.length)
-        d.innerHTML = `<img src="${src}" alt="인증서" loading="lazy"/>` +
-          `<div class="cert-card-ov"><div class="cert-zoom">` +
-          `<svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/>` +
-          `<line x1="16.5" y1="16.5" x2="22" y2="22"/>` +
-          `<line x1="11" y1="8" x2="11" y2="14"/>` +
-          `<line x1="8" y1="11" x2="14" y2="11"/></svg></div></div>`
-        track.appendChild(d)
+        d.className = 'cert-gallery-card'
+        d.dataset.idx = String(i)
+        d.innerHTML = `<img src="${src}" alt="인증서 ${i+1}" loading="lazy"/>` +
+          `<div class="cert-gallery-ov">` +
+          `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(96,165,250,1)" stroke-width="2">` +
+          `<circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/>` +
+          `<line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>` +
+          `</div>`
+        gallery.appendChild(d)
       })
     }
 
@@ -45,7 +45,7 @@ export default function CompanyPage() {
     }
     function closeLb(){if(lb)lb.classList.remove('open');document.body.style.overflow=''}
     function moveLb(d){lbIdx=(lbIdx+d+awardImages.length)%awardImages.length;if(lbImg)lbImg.src=awardImages[lbIdx];if(lbCnt)lbCnt.textContent=(lbIdx+1)+' / '+awardImages.length}
-    if(track) track.addEventListener('click', e => { const c=e.target.closest('.cert-card');if(c)openLb(+c.dataset.idx) })
+    if(gallery) gallery.addEventListener('click', e => { const c=e.target.closest('.cert-gallery-card');if(c)openLb(+c.dataset.idx) })
     const lbClose=document.getElementById('lb-close')
     const lbPrev=document.getElementById('lb-prev')
     const lbNext=document.getElementById('lb-next')
@@ -157,6 +157,17 @@ export default function CompanyPage() {
     if(fbOvNext)fbOvNext.addEventListener('click',()=>showOvPage(ovPageIdx+1))
     if(fbOverlay)fbOverlay.addEventListener('click',e=>{if(e.target===fbOverlay)closeOverlay()})
 
+    // 인증 아코디언
+    document.querySelectorAll('.cert-ac-item').forEach(item => {
+      const head = item.querySelector('.cert-ac-head')
+      const toggle = item.querySelector('.cert-ac-toggle')
+      if(!head) return
+      head.addEventListener('click', () => {
+        const isOpen = item.classList.toggle('open')
+        if(toggle) toggle.textContent = isOpen ? '닫기 −' : '사진 보기 +'
+      })
+    })
+
     // Reveal
     const ro=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');ro.unobserve(e.target)}})},{threshold:0.05})
     document.querySelectorAll('.reveal').forEach(el=>ro.observe(el))
@@ -168,62 +179,202 @@ export default function CompanyPage() {
     <>
 <div className="pg-company">
 
-  {/* ── Hero ── */}
+  {/* ── Hero (다른 페이지와 동일한 구조) ── */}
   <div className="page-hero">
-    <div className="container page-hero-inner">
-      <h1 className="page-title">제조 혁신의 시작,<br/><em>지엔디비즈입니다</em></h1>
-      <p className="page-desc">15년간 대기업·중견기업 현장을 함께한 경험으로<br/>스마트팩토리와 AI 기술로 중소기업의 내일을 설계합니다</p>
+    <div className="grid-bg"></div>
+    <div className="page-hero-inner">
+      <h1 className="page-title">
+        우리는 공장 바닥을 알고,<br/><em>코드로 문제를 해결합니다</em>
+      </h1>
+      <p className="page-desc">
+        15년 동안 대한민국 제조 현장에서 쌓은 경험은 어떤 교과서에도 없습니다.<br/>
+        그 경험이 지엔디비즈의 코드 한 줄, 설계 한 장에 담겨 있습니다.
+      </p>
+      <div className="company-hero-pillars">
+        <div className="company-hero-pillar">
+          <span className="chp-word">현장</span>
+          <span className="chp-desc">이론이 아닌 바닥에서 만든 솔루션</span>
+        </div>
+        <div className="company-hero-pillar">
+          <span className="chp-word">맞춤</span>
+          <span className="chp-desc">귀사 공장에만 딱 맞게 설계</span>
+        </div>
+        <div className="company-hero-pillar">
+          <span className="chp-word">책임</span>
+          <span className="chp-desc">납품 이후에도 함께하는 파트너십</span>
+        </div>
+        <div className="company-hero-pillar">
+          <span className="chp-word">진화</span>
+          <span className="chp-desc">AI로 계속 고도화되는 플랫폼</span>
+        </div>
+      </div>
     </div>
   </div>
 
-  {/* ── CEO 인사말 ── */}
-  <section className="sec-ceo">
+  {/* ── 핵심 원칙 (PRINCIPLES) ── */}
+  <section className="sec-principles">
     <div className="container">
-      <div className="reveal greeting-wrap">
+      <div className="sec-head-center reveal">
+        <h2 className="sec-title">우리가 지키는 원칙</h2>
+        <p className="sec-desc">모든 프로젝트, 모든 코드, 모든 현장에서<br/>변하지 않는 지엔디비즈의 기준입니다</p>
+      </div>
+      <div className="principles-grid">
+        <div className="principle-card reveal" style={{transitionDelay:".05s"}}>
+          <div className="pc-num-big">01</div>
+          <h3 className="pc-title">현장 최우선</h3>
+          <p className="pc-desc">이론보다 현장을 먼저 봅니다. 도입 전 반드시 현장을 직접 방문하고, 실제 작업자의 흐름을 기반으로 시스템을 설계합니다.</p>
+        </div>
+        <div className="principle-card reveal" style={{transitionDelay:".1s"}}>
+          <div className="pc-num-big">02</div>
+          <h3 className="pc-title">책임 있는 납기</h3>
+          <p className="pc-desc">약속한 일정을 지킵니다. 25년 경력 전담 QA가 직접 투입되며, 장애 발생 시 7단계 복구 프로세스로 최단 시간 내 복구를 보장합니다.</p>
+        </div>
+        <div className="principle-card reveal" style={{transitionDelay:".15s"}}>
+          <div className="pc-num-big">03</div>
+          <h3 className="pc-title">맞춤 개발 원칙</h3>
+          <p className="pc-desc">범용 패키지를 강요하지 않습니다. 기업의 업종·규모·프로세스에 맞는 기능만 개발하고, 불필요한 기능으로 복잡성을 높이지 않습니다.</p>
+        </div>
+        <div className="principle-card reveal" style={{transitionDelay:".2s"}}>
+          <div className="pc-num-big">04</div>
+          <h3 className="pc-title">데이터 기반 성장</h3>
+          <p className="pc-desc">감이 아닌 데이터로 판단합니다. 구축 후에도 KPI 모니터링을 통해 도입 효과를 수치로 증명하고, 지속적인 개선을 지원합니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <div className="greeting-left">
-          <span className="greeting-badge">대표인사말</span>
-          <p className="greeting-body">저희 지엔디비즈는 ERP · MES · PLM을 15년 이상 대기업과 중견기업을 대상으로 개발한 풍부한 현장 경험을 바탕으로 2011년에 창업하였습니다.</p>
-          <p className="greeting-body">현재는 스마트팩토리 구축을 넘어 AI 예측 · Vision 검사 · 로봇 지능 제어까지 제조 AI 풀스택 기술을 보유하고 있으며, KOSF 전문공급기업으로 100개사 이상의 현장에 솔루션을 공급하였습니다.</p>
-          <div className="greeting-stats">
-            <div className="gstat"><span className="gstat-num">2011</span><span className="gstat-label">창업</span></div>
-            <div className="gstat-divider"></div>
-            <div className="gstat"><span className="gstat-num">15<em>년+</em></span><span className="gstat-label">현장경험</span></div>
-            <div className="gstat-divider"></div>
-            <div className="gstat"><span className="gstat-num">100<em>+</em></span><span className="gstat-label">구축기업</span></div>
-            <div className="gstat-divider"></div>
-            <div className="gstat"><span className="gstat-num">7<em>개</em></span><span className="gstat-label">핵심솔루션</span></div>
+  {/* ── 협업 방식 (HOW WE WORK) ── */}
+  <section className="sec-howwework">
+    <div className="container">
+      <div className="sec-head-center reveal">
+        <h2 className="sec-title">우리의 협업 방식</h2>
+        <p className="sec-desc">프로젝트 시작부터 운영까지,<br/>지엔디비즈는 파트너로서 함께합니다</p>
+      </div>
+      <div className="hww-track">
+        <div className="hww-card hww-card-1 reveal" style={{transitionDelay:".05s"}}>
+          <div className="hww-num">01</div>
+          <div className="hww-phase">DISCOVER</div>
+          <h3 className="hww-title">현장 분석 · 진단</h3>
+          <p className="hww-desc">직접 현장을 방문해 생산 흐름, 데이터 구조, 병목 구간을 파악합니다. 현장 진단 리포트를 무상으로 제공합니다.</p>
+        </div>
+        <div className="hww-arrow reveal" style={{transitionDelay:".1s"}}>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+        </div>
+        <div className="hww-card hww-card-2 reveal" style={{transitionDelay:".15s"}}>
+          <div className="hww-num">02</div>
+          <div className="hww-phase">DESIGN</div>
+          <h3 className="hww-title">맞춤 설계 · 프로토타이핑</h3>
+          <p className="hww-desc">실제 현장 작업자의 동선에 맞춰 UI·UX를 설계합니다. 프로토타입 단계에서 충분한 피드백을 반영합니다.</p>
+        </div>
+        <div className="hww-arrow reveal" style={{transitionDelay:".2s"}}>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+        </div>
+        <div className="hww-card hww-card-3 reveal" style={{transitionDelay:".25s"}}>
+          <div className="hww-num">03</div>
+          <div className="hww-phase">BUILD</div>
+          <h3 className="hww-title">개발 · 통합 · 테스트</h3>
+          <p className="hww-desc">자체 개발팀과 25년 경력 QA가 함께 품질을 보장합니다. ERP·PLC·IoT 연동 전체 시스템 통합 테스트를 실시합니다.</p>
+        </div>
+        <div className="hww-arrow reveal" style={{transitionDelay:".3s"}}>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+        </div>
+        <div className="hww-card hww-card-4 reveal" style={{transitionDelay:".35s"}}>
+          <div className="hww-num">04</div>
+          <div className="hww-phase">GROW</div>
+          <h3 className="hww-title">운영 · 고도화 · AI 전환</h3>
+          <p className="hww-desc">납품으로 끝나지 않습니다. 데이터 축적 후 GIVAS AI 연동으로 예지보전·이상탐지 자동화로 진화시킵니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* ── 인증 · 수상 섹션 ── */}
+  <section className="sec-cert-new">
+    <div className="container">
+
+      <div className="cert-section-head reveal">
+        <h2 className="cert-section-title">인증 및 수상</h2>
+        <p className="cert-section-sub">기술력이 공식으로 인정받은 기록입니다</p>
+      </div>
+
+      <div className="cert-row-list reveal" style={{transitionDelay:".08s"}}>
+
+        <div className="cert-row-item" onClick={e=>{ const b=document.getElementById('lb-img'); const c=document.getElementById('lb-counter'); const lb=document.getElementById('lightbox'); if(b)b.src='/images/company/cert-01.jpg'; if(c)c.textContent='ISO 9001 품질경영시스템'; if(lb){lb.classList.add('open');document.body.style.overflow='hidden'} }}>
+          <div className="cert-row-left">
+            <span className="cert-row-cat">인증</span>
+            <span className="cert-row-name">ISO 9001 품질경영시스템</span>
+            <span className="cert-row-org">국제 품질경영 표준 인증</span>
           </div>
+          <span className="cert-row-view">사진 보기</span>
         </div>
 
-        <div className="greeting-right">
-          <div className="gqc">
-            <div className="gqc-mark">&ldquo;</div>
-            <p className="gqc-text">4차 산업 변화의 물결은 시작되었습니다.<br/>그 변화의 시작에 <em>책임있는 ICT 기술력</em>과<br/>품질로 함께 하고 싶습니다.</p>
-            <div className="gqc-footer">
-              <span className="gqc-role">대표이사 · CEO</span>
-              <span className="gqc-name">곽 승 범</span>
-            </div>
+        <div className="cert-row-item" onClick={e=>{ const b=document.getElementById('lb-img'); const c=document.getElementById('lb-counter'); const lb=document.getElementById('lightbox'); if(b)b.src='/images/company/cert-02.jpg'; if(c)c.textContent='벤처기업 인증'; if(lb){lb.classList.add('open');document.body.style.overflow='hidden'} }}>
+          <div className="cert-row-left">
+            <span className="cert-row-cat">인증</span>
+            <span className="cert-row-name">벤처기업 인증</span>
+            <span className="cert-row-org">중소벤처기업부</span>
           </div>
+          <span className="cert-row-view">사진 보기</span>
+        </div>
+
+        <div className="cert-row-item" onClick={e=>{ const b=document.getElementById('lb-img'); const c=document.getElementById('lb-counter'); const lb=document.getElementById('lightbox'); if(b)b.src='/images/company/cert-03.jpg'; if(c)c.textContent='KOSF 스마트팩토리 전문공급기업'; if(lb){lb.classList.add('open');document.body.style.overflow='hidden'} }}>
+          <div className="cert-row-left">
+            <span className="cert-row-cat">인증</span>
+            <span className="cert-row-name">KOSF 스마트팩토리 전문공급기업</span>
+            <span className="cert-row-org">스마트제조혁신추진단</span>
+          </div>
+          <span className="cert-row-view">사진 보기</span>
+        </div>
+
+        <div className="cert-row-item" onClick={e=>{ const b=document.getElementById('lb-img'); const c=document.getElementById('lb-counter'); const lb=document.getElementById('lightbox'); if(b)b.src='/images/company/award-2018.jpg'; if(c)c.textContent='중소벤처기업부 장관상'; if(lb){lb.classList.add('open');document.body.style.overflow='hidden'} }}>
+          <div className="cert-row-left">
+            <span className="cert-row-cat">수상</span>
+            <span className="cert-row-name">중소벤처기업부 장관상</span>
+            <span className="cert-row-org">스마트공장 보급·확산 기여</span>
+          </div>
+          <span className="cert-row-view">사진 보기</span>
+        </div>
+
+        <div className="cert-row-item" onClick={e=>{ const b=document.getElementById('lb-img'); const c=document.getElementById('lb-counter'); const lb=document.getElementById('lightbox'); if(b)b.src='/images/company/cert-sports-seoul.jpg'; if(c)c.textContent='서울특별시장 표창'; if(lb){lb.classList.add('open');document.body.style.overflow='hidden'} }}>
+          <div className="cert-row-left">
+            <span className="cert-row-cat">수상</span>
+            <span className="cert-row-name">서울특별시장 표창</span>
+            <span className="cert-row-org">스포츠산업 발전 기여</span>
+          </div>
+          <span className="cert-row-view">사진 보기</span>
+        </div>
+
+        <div className="cert-row-item" onClick={e=>{ const b=document.getElementById('lb-img'); const c=document.getElementById('lb-counter'); const lb=document.getElementById('lightbox'); if(b)b.src='/images/company/cert-04.jpg'; if(c)c.textContent='소프트웨어 저작권 — i-MEPS 시리즈'; if(lb){lb.classList.add('open');document.body.style.overflow='hidden'} }}>
+          <div className="cert-row-left">
+            <span className="cert-row-cat">지재권</span>
+            <span className="cert-row-name">소프트웨어 저작권 — i-MEPS 시리즈</span>
+            <span className="cert-row-org">제조통합솔루션 전 모듈</span>
+          </div>
+          <span className="cert-row-view">사진 보기</span>
+        </div>
+
+        <div className="cert-row-item" onClick={e=>{ const b=document.getElementById('lb-img'); const c=document.getElementById('lb-counter'); const lb=document.getElementById('lightbox'); if(b)b.src='/images/company/cert-05.jpg'; if(c)c.textContent='소프트웨어 저작권 — GIVAS AI'; if(lb){lb.classList.add('open');document.body.style.overflow='hidden'} }}>
+          <div className="cert-row-left">
+            <span className="cert-row-cat">지재권</span>
+            <span className="cert-row-name">소프트웨어 저작권 — GIVAS AI</span>
+            <span className="cert-row-org">제조 AI 플랫폼</span>
+          </div>
+          <span className="cert-row-view">사진 보기</span>
+        </div>
+
+        <div className="cert-row-item" onClick={e=>{ const b=document.getElementById('lb-img'); const c=document.getElementById('lb-counter'); const lb=document.getElementById('lightbox'); if(b)b.src='/images/company/cert-06.jpg'; if(c)c.textContent='소프트웨어 저작권 — V-MEPS · R-MEPS'; if(lb){lb.classList.add('open');document.body.style.overflow='hidden'} }}>
+          <div className="cert-row-left">
+            <span className="cert-row-cat">지재권</span>
+            <span className="cert-row-name">소프트웨어 저작권 — V-MEPS · R-MEPS</span>
+            <span className="cert-row-org">비전검사 · 로봇제어 AI</span>
+          </div>
+          <span className="cert-row-view">사진 보기</span>
         </div>
 
       </div>
     </div>
   </section>
 
-  {/* ── 인증 슬라이더 ── */}
-  <div className="sec-cert">
-    <div className="container">
-      <div className="reveal" style={{transitionDelay:".1s"}}>
-        <div className="cert-slider-wrap">
-          <div className="cert-slider-label">인증 및 수상 · 지적재산권</div>
-          <div className="cert-slider-mask">
-            <div className="cert-track" id="cert-track"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
   {/* Lightbox */}
   <div className="lightbox" id="lightbox">

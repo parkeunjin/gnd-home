@@ -93,7 +93,7 @@
   .pg-info .logo{font-size:26px}
   .pg-info .hamburger{display:none}
   .pg-info .gnb{display:flex}
-  .pg-info .page-hero{padding:88px 0 0}
+  .pg-info .page-hero{padding:56px 0 0}
   .pg-info .page-hero-inner{padding:100px 40px 0}
   .pg-info .page-title br,
 
@@ -137,7 +137,7 @@
 
 /* ═══ MOBILE 480px ═══ */
 @media(max-width:480px){
-  .pg-info .page-hero-inner{padding:60px 16px 0}
+  .pg-info .page-hero-inner{padding:40px 20px 0}
   .pg-info .roadmap-steps{grid-template-columns:1fr}
   .pg-info .step-num{font-size:42px}
   .pg-info .step-badge{font-size:14px}

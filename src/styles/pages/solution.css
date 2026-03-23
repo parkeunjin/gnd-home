@@ -321,6 +321,7 @@
   .pg-solution .vs-card-title{font-size:20px}
 }
 @media(max-width:768px){
+  .pg-solution .page-hero{padding:56px 0 0}
   .pg-solution .gnb, .pg-solution .nav-cta{display:none}
   .pg-solution .container{padding:0 20px}
   .pg-solution .modules-grid{grid-template-columns:repeat(2,1fr)}
@@ -349,10 +350,18 @@
   .pg-solution .arch-ai-banner{flex-direction:column}
   .pg-solution .vs-left, .pg-solution .vs-right{padding:28px 20px}
   .pg-solution .vs-card-title{font-size:16px}
-  .pg-solution .kpi-compare-row{flex-direction:column}
-  .pg-solution .kpi-cmp-arrow{transform:rotate(90deg)}
-  .pg-solution .kpi-flow-steps{flex-wrap:wrap}
-  .pg-solution .page-hero-inner{padding:60px 20px 48px}
+  /* 재고오차율: 가로 병렬 유지 */
+  .pg-solution .kpi-compare-row{flex-direction:row;gap:10px}
+  .pg-solution .kpi-cmp-arrow{transform:none}
+  .pg-solution .kpi-cmp-num{font-size:26px}
+  .pg-solution .kpi-cmp-box{padding:16px 10px}
+  /* AI전환속도: 세로 정렬 */
+  .pg-solution .kpi-flow-steps{flex-direction:column;gap:8px;align-items:stretch}
+  .pg-solution .kpi-flow-arrow{transform:rotate(90deg);text-align:center;font-size:22px}
+  .pg-solution .kpi-flow-step{flex:none;padding:14px 18px;display:flex;align-items:center;gap:14px;text-align:left}
+  .pg-solution .kpi-flow-step-num{font-size:22px;margin-bottom:0;flex-shrink:0}
+  .pg-solution .kpi-flow-step-txt{font-size:14px;text-align:left}
+  .pg-solution .page-hero-inner{padding:40px 20px 40px}
   .pg-solution .section{padding:56px 0}
   .pg-solution .sec-head-center{margin-bottom:40px}
   .pg-solution .cta-section{padding:72px 0}

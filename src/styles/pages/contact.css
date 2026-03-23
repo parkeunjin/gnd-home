@@ -185,7 +185,7 @@
    TABLET  768px+
 ════════════════════════════════════════ */
 @media(min-width:768px){
-
+  .pg-contact .page-hero{padding:56px 0 0}
   .pg-contact .nav-inner{padding:0 32px}
   .pg-contact .logo{font-size:26px}
   .pg-contact .hamburger{display:none}
@@ -221,7 +221,7 @@
    MOBILE 480px
 ════════════════════════════════════════ */
 @media(max-width:480px){
-  .pg-contact .page-hero-inner{padding:60px 16px 40px}
+  .pg-contact .page-hero-inner{padding:40px 20px 36px}
   .pg-contact #contact-paths{padding:32px 0}
   .pg-contact .paths-grid{margin-top:24px}
   .pg-contact .path-card{padding:20px 16px}

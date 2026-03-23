@@ -176,6 +176,7 @@
   .pg-clients .p-item:nth-child(2n){border-right:none}
 }
 @media(max-width:768px){
+  .pg-clients .page-hero{padding:56px 0 0}
   .pg-clients .gnb, .pg-clients .nav-cta{display:none}
   .pg-clients .container{padding:0 20px}
   .pg-clients .industry-grid{grid-template-columns:repeat(2,1fr)}
@@ -185,6 +186,17 @@
   .pg-clients .hero-fact-num{font-size:36px}
   .pg-clients .hero-fact-label{font-size:13px}
 
+  /* 대기업 4사: 2열 병렬 */
+  .pg-clients .t1-grid{grid-template-columns:repeat(2,1fr)}
+  .pg-clients .t1-item{padding:28px 16px}
+
+  /* 중견 전문기업: 3열 병렬 */
+  .pg-clients .p-grid{grid-template-columns:repeat(3,1fr)}
+  .pg-clients .p-item:nth-child(5n){border-right:1px solid rgba(255,255,255,.04)}
+  .pg-clients .p-item:nth-child(3n){border-right:none}
+  .pg-clients .p-item{padding:20px 12px}
+  .pg-clients .p-item .limg{width:100px;height:48px}
+
   .pg-clients .timeline-body::before{left:72px}
   .pg-clients .tl-row{grid-template-columns:72px 1fr}
   .pg-clients .tl-year{font-size:22px}
@@ -193,7 +205,7 @@
   .pg-clients .tl-txt{font-size:14px}
   .pg-clients .tl-tag{font-size:10px;padding:2px 8px}
   .pg-clients .pc-br{display:none}
-  .pg-clients .page-hero-inner{padding:60px 20px 48px}
+  .pg-clients .page-hero-inner{padding:40px 20px 40px}
   .pg-clients .section{padding:56px 0}
   .pg-clients .sec-head-center{margin-bottom:40px}
   .pg-clients .cta-section-inner{padding:0 20px}
@@ -207,8 +219,14 @@
   .pg-clients .industry-count{font-size:46px}
   .pg-clients .industry-count-unit{font-size:30px}
   .pg-clients .hero-fact-num{font-size:32px}
-  .pg-clients .t1-grid{grid-template-columns:1fr}
-  .pg-clients .p-grid{grid-template-columns:repeat(2,1fr)}
+  /* 대기업: 480px도 2열 유지 */
+  .pg-clients .t1-grid{grid-template-columns:repeat(2,1fr)}
+  .pg-clients .limg{width:110px;height:50px}
+  /* 중견: 480px도 3열 유지 */
+  .pg-clients .p-grid{grid-template-columns:repeat(3,1fr)}
+  .pg-clients .p-item:nth-child(3n){border-right:none}
+  .pg-clients .p-item{padding:14px 8px}
+  .pg-clients .p-item .limg{width:72px;height:36px}
   .pg-clients .timeline-body::before{left:56px}
   .pg-clients .tl-row{grid-template-columns:56px 1fr}
   .pg-clients .tl-year{font-size:18px}

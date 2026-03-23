@@ -105,6 +105,15 @@ export default function HomePage() {
   const typed = useTypewriter()
 
   useEffect(() => {
+    // 솔루션 아코디언
+    document.querySelectorAll('.sol2-row').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.sol2-item')
+        const isOpen = item.classList.toggle('open')
+        btn.setAttribute('aria-expanded', String(isOpen))
+      })
+    })
+
     const ro = new IntersectionObserver(es => {
       es.forEach(e => { if(e.isIntersecting){e.target.classList.add('visible');ro.unobserve(e.target)} })
     }, { threshold: 0.06 })
@@ -154,190 +163,128 @@ export default function HomePage() {
         </div>
       </section>
 
-            <section id="solutions" className="section">
-        <div className="container">
-          <div className="sec-head-center reveal">
-            <h2 className="sec-title">중소기업을 위한 맞춤형 솔루션</h2>
-            <p className="sec-desc">15년 현장 경험을 바탕으로 귀사에 꼭 맞는 스마트팩토리를 구축합니다</p>
+      {/* ══ SOLUTION — sticky 좌측 타이틀 + 우측 스크롤 아이템 ══ */}
+      <section id="solutions">
+        <div className="sol-sticky-wrap">
+
+          {/* 좌측: 뷰포트에 sticky 고정되는 타이틀 패널 */}
+          <div className="sol-sticky-left">
+            <div className="sol-sticky-inner">
+              <h2 className="sol-sticky-title">
+                현장을 알기에<br/>
+                <em>정확하게</em><br/>
+                만듭니다
+              </h2>
+              <p className="sol-sticky-body">
+                15년간 대기업·중견기업 현장을<br/>
+                직접 누빈 경험.<br/>
+                i-MEPS·AI·IoT까지 책임집니다.
+              </p>
+              <Link to="/solution" className="sol-sticky-link">
+                솔루션 전체 보기
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </Link>
+            </div>
           </div>
-          <div className="sol-grid">
 
-            <div className="sol-card reveal" style={{transitionDelay:".05s"}}>
-              <div className="sol-icon-wrap">
-                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M24 8a6 6 0 100 12 6 6 0 000-12z" stroke="currentColor" strokeWidth="2" fill="currentColor" fillOpacity=".15"/>
-                  <path d="M24 8v-4M24 20v4M16.5 12l-2.8-2.8M31.5 16.8l2.8 2.8M8 14H4M44 14h-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity=".6"/>
-                  <rect x="8" y="28" width="32" height="14" rx="2" stroke="currentColor" strokeWidth="2"/>
-                  <path d="M14 28v-4M24 28v-4M34 28v-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                  <path d="M4 42h40" stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity=".4"/>
-                  <circle cx="24" cy="14" r="2.5" fill="currentColor"/>
-                </svg>
-              </div>
-              <h3 className="sol-name">스마트공장 구축</h3>
-              <ul className="sol-list">
-                <li>ERP · MES · PLM · SCM · QMS</li>
-                <li>i-MEPS 제조통합솔루션</li>
-                <li>15년 이상 100+ 구축 실적</li>
-                <li>중소기업 맞춤형 빠른 적용</li>
-              </ul>
-            </div>
-
-            <div className="sol-card reveal" style={{transitionDelay:".1s"}}>
-              <div className="sol-icon-wrap">
-                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="4" y="8" width="40" height="32" rx="3" stroke="currentColor" strokeWidth="2"/>
-                  <path d="M4 16h40" stroke="currentColor" strokeWidth="1.5" opacity=".4"/>
-                  <circle cx="10" cy="12" r="1.5" fill="currentColor" opacity=".5"/>
-                  <circle cx="15" cy="12" r="1.5" fill="currentColor" opacity=".5"/>
-                  <circle cx="20" cy="12" r="1.5" fill="currentColor" opacity=".5"/>
-                  <path d="M14 24l-4 4 4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M34 24l4 4-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M28 21l-8 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity=".8"/>
-                  <path d="M4 40v4M44 40v4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity=".3"/>
-                </svg>
-              </div>
-              <h3 className="sol-name">맞춤형 솔루션 개발</h3>
-              <ul className="sol-list">
-                <li>공정관리 · 초/중/종 검사시스템</li>
-                <li>SPC · 4M변경관리 · 견적관리</li>
-                <li>현장 맞춤 커스터마이징</li>
-                <li>요구사항 기반 기능 개발</li>
-              </ul>
-            </div>
-
-            <div className="sol-card reveal" style={{transitionDelay:".15s"}}>
-              <div className="sol-icon-wrap">
-                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="8" y="4" width="24" height="32" rx="2" stroke="currentColor" strokeWidth="2"/>
-                  <path d="M15 13l3 3 5-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M15 21l3 3 5-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <line x1="15" y1="30" x2="25" y2="30" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" opacity=".4"/>
-                  <path d="M32 28V44M32 28l-6 6M32 28l6 6" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  <rect x="26" y="40" width="12" height="4" rx="1" fill="currentColor" fillOpacity=".15" stroke="currentColor" strokeWidth="1.5"/>
-                </svg>
-              </div>
-              <h3 className="sol-name">공정관리개선 컨설팅</h3>
-              <ul className="sol-list">
-                <li>3정5S · 공정표준화</li>
-                <li>SQ 인증 준비 지원</li>
-                <li>프로세스 간소화</li>
-                <li>현장관리기법 교육</li>
-              </ul>
-            </div>
-
-            <div className="sol-card reveal" style={{transitionDelay:".2s"}}>
-              <div className="sol-icon-wrap">
-                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="24" cy="24" r="5" stroke="currentColor" strokeWidth="2" fill="currentColor" fillOpacity=".15"/>
-                  <circle cx="8" cy="10" r="4" stroke="currentColor" strokeWidth="1.8"/>
-                  <circle cx="40" cy="10" r="4" stroke="currentColor" strokeWidth="1.8"/>
-                  <circle cx="8" cy="38" r="4" stroke="currentColor" strokeWidth="1.8"/>
-                  <circle cx="40" cy="38" r="4" stroke="currentColor" strokeWidth="1.8"/>
-                  <line x1="12" y1="13" x2="20" y2="20" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" opacity=".75"/>
-                  <line x1="36" y1="13" x2="28" y2="20" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" opacity=".75"/>
-                  <line x1="12" y1="35" x2="20" y2="28" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" opacity=".75"/>
-                  <line x1="36" y1="35" x2="28" y2="28" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" opacity=".75"/>
-                  <circle cx="8" cy="10" r="1.5" fill="currentColor"/>
-                  <circle cx="40" cy="10" r="1.5" fill="currentColor"/>
-                  <circle cx="8" cy="38" r="1.5" fill="currentColor"/>
-                  <circle cx="40" cy="38" r="1.5" fill="currentColor"/>
-                  <path d="M20 10h8M20 38h8M10 20v8M38 20v8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" opacity=".35"/>
-                </svg>
-              </div>
-              <h3 className="sol-name">IoT / FA 연동시스템</h3>
-              <ul className="sol-list">
-                <li>PLC · 협동로봇 · AGV 연동</li>
-                <li>카운터 · 모니터링 · 검출 시스템</li>
-                <li>FOOL PROOF 개발</li>
-                <li>무선호출 · 모바일 연동</li>
-              </ul>
-            </div>
-
+          {/* 우측: 스크롤되는 아이템 목록 */}
+          <div className="sol-sticky-right">
+            {[
+              { num:'01', name:'스마트공장 구축',     en:'Smart Factory',         desc:'ERP · MES · PLM · SCM · QMS — i-MEPS 하나의 플랫폼으로 통합, 실시간 데이터 기반 의사결정 지원' },
+              { num:'02', name:'맞춤형 솔루션 개발',  en:'Custom Development',    desc:'공정관리 · 검사 · SPC · 4M 변경관리 — 현장 분석부터 개발·납품·유지보수까지 일괄 책임' },
+              { num:'03', name:'공정관리개선 컨설팅', en:'Process Consulting',     desc:'3정5S · 공정표준화 · SQ 인증 취득 — 전문가가 현장에 직접 투입되어 지속 지원' },
+              { num:'04', name:'IoT / FA 연동시스템', en:'IoT & FA Integration',  desc:'PLC · 협동로봇 · AGV 연동 — FOOL PROOF 및 모바일 자동화로 무인화 공정 실현' },
+            ].map(({ num, name, en, desc }) => (
+              <Link to="/solution" key={num} className="sol-sticky-item reveal">
+                <span className="sol-si-num">{num}</span>
+                <div className="sol-si-body">
+                  <div className="sol-si-head">
+                    <h3 className="sol-si-name">{name}</h3>
+                    <span className="sol-si-en">{en}</span>
+                  </div>
+                  <p className="sol-si-desc">{desc}</p>
+                </div>
+                <span className="sol-si-arrow">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </span>
+              </Link>
+            ))}
           </div>
+
         </div>
       </section>
 
-            <section id="ai" className="section">
-        <div className="container">
-          <div className="sec-head-center reveal">
-            <h2 className="sec-title">AI 사업 분야</h2>
-            <p className="sec-desc">비즈니스의 모든 순간, 현장 AI의 정답은 지엔디비즈입니다</p>
-          </div>
-          <div className="ai-grid">
+      {/* ══ AI PRODUCTS — sticky 우측 타이틀 + 좌측 스크롤 리스트 ══ */}
+      <section id="ai">
+        <div className="ai-sticky-wrap">
 
-            <div className="ai-card reveal" style={{transitionDelay:".05s"}}>
-              <div className="ai-img">
-                <img src="/images/ai/givas-thumbnail.png" alt="GIVAS"/>
-                <div className="ai-img-overlay"></div>
-                <div className="ai-img-tint"></div>
-                <div className="ai-badge">
-                  <span className="ai-badge-name">GIVAS</span>
-                  <span className="ai-badge-sub">Manufacturing Intelligence Brain</span>
-                </div>
-              </div>
-              <div className="ai-body">
-                <div className="ai-divider"></div>
-                <ul className="ai-desc-list">
-                  <li>예지보전 · AI-SPC · 이상탐지</li>
-                  <li>Gen AI 자연어 분석 · 재고 최적화</li>
-                  <li>Naver Cloud SaaS 지원</li>
-                </ul>
-                <Link to="/ai/givas" className="ai-btn">
-                  GIVAS 바로가기
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </Link>
-              </div>
-            </div>
+          {/* 좌측: 스크롤되는 AI 아이템 목록 */}
+          <div className="ai-sticky-left">
 
-            <div className="ai-card reveal" style={{transitionDelay:".1s"}}>
-              <div className="ai-img">
-                <img src="/images/ai/vmeps-thumbnail.png" alt="V-MEPS"/>
-                <div className="ai-img-overlay"></div>
-                <div className="ai-img-tint"></div>
-                <div className="ai-badge">
-                  <span className="ai-badge-name">V-MEPS</span>
-                  <span className="ai-badge-sub">Vision Safety AI</span>
+            <Link to="/ai/givas" className="ai-si-item reveal" style={{transitionDelay:'.04s'}}>
+              <span className="ai-si-num">01</span>
+              <div className="ai-si-body">
+                <div className="ai-si-head">
+                  <h3 className="ai-si-name">GIVAS</h3>
+                  <span className="ai-si-en">Manufacturing Intelligence Brain</span>
                 </div>
+                <p className="ai-si-desc">예지보전 · AI-SPC · 이상탐지 · Gen AI 자연어 분석 · 재고 최적화</p>
               </div>
-              <div className="ai-body">
-                <div className="ai-divider"></div>
-                <ul className="ai-desc-list">
-                  <li>딥러닝 불량검사 · 화재 감지</li>
-                  <li>안전사고 실시간 모니터링</li>
-                  <li>0.1초 Edge 고속 추론</li>
-                </ul>
-                <Link to="/ai/vmeps" className="ai-btn">
-                  V-MEPS 바로가기
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </Link>
-              </div>
-            </div>
+              <span className="ai-si-arrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
+            </Link>
 
-            <div className="ai-card reveal" style={{transitionDelay:".15s"}}>
-              <div className="ai-img">
-                <img src="/images/ai/rmeps-thumbnail.png" alt="R-MEPS"/>
-                <div className="ai-img-overlay"></div>
-                <div className="ai-img-tint"></div>
-                <div className="ai-badge">
-                  <span className="ai-badge-name">R-MEPS</span>
-                  <span className="ai-badge-sub">Robot Adaptive Control</span>
+            <Link to="/ai/vmeps" className="ai-si-item reveal" style={{transitionDelay:'.1s'}}>
+              <span className="ai-si-num">02</span>
+              <div className="ai-si-body">
+                <div className="ai-si-head">
+                  <h3 className="ai-si-name">V-MEPS</h3>
+                  <span className="ai-si-en">Vision Safety AI</span>
                 </div>
+                <p className="ai-si-desc">딥러닝 불량검사 · 화재 감지 · 안전사고 실시간 모니터링 · 0.1초 Edge 추론</p>
               </div>
-              <div className="ai-body">
-                <div className="ai-divider"></div>
-                <ul className="ai-desc-list">
-                  <li>용접 품질 AI 예측</li>
-                  <li>직재 경로 최적화</li>
-                  <li>100ms 이내 즉시 제어</li>
-                </ul>
-                <Link to="/ai/rmeps" className="ai-btn">
-                  R-MEPS 바로가기
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </Link>
+              <span className="ai-si-arrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
+            </Link>
+
+            <Link to="/ai/rmeps" className="ai-si-item reveal" style={{transitionDelay:'.16s'}}>
+              <span className="ai-si-num">03</span>
+              <div className="ai-si-body">
+                <div className="ai-si-head">
+                  <h3 className="ai-si-name">R-MEPS</h3>
+                  <span className="ai-si-en">Robot Adaptive Control</span>
+                </div>
+                <p className="ai-si-desc">용접 품질 AI 예측 · 직재 경로 최적화 · 100ms 이내 즉시 제어</p>
               </div>
-            </div>
+              <span className="ai-si-arrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
+            </Link>
 
           </div>
+
+          {/* 우측: sticky 고정 타이틀 패널 */}
+          <div className="ai-sticky-right">
+            <div className="ai-sticky-inner">
+              <h2 className="ai-sticky-title">
+                제조 현장을 위한<br/>
+                <em>AI 솔루션</em>
+              </h2>
+              <p className="ai-sticky-body">
+                스마트팩토리 구축 경험 위에<br/>
+                AI를 더합니다.<br/>
+                예측·검사·제어, 세 영역을<br/>
+                하나로 연결합니다.
+              </p>
+              <Link to="/ai/platform" className="sol-sticky-link">
+                AI 플랫폼 전체 보기
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </Link>
+            </div>
+          </div>
+
         </div>
       </section>
 
